@@ -98,7 +98,7 @@
         "Ciudad"=>"Shunay"
     ];
     ["Nombre"=>$elNombre,"Edad"=>$laEdad,"Ciudad"=>$laCiudad]=$individuo;
-    echo "<br>".$elNombre."<br>".$laEdad."<br>".$laCiudad."<br>"; 
+    echo "<br>".$elNombre."<br>".$laEdad."<br>".$laCiudad."<br>";  
     
     ?>
 </body>
