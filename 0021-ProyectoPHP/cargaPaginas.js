@@ -1,30 +1,35 @@
-function cargarPagina(){
-    var elemento0 = document.getElementById("tabla");
-    elemento0.style.visibility="hidden";
-    var elemento0 = document.getElementById("tabla2");
-    elemento0.style.visibility="hidden";
+function cargarPagina()
+{
+    var elemento1 = document.getElementsByClassName("bloque_opciones");
+    var elemento2 = document.getElementsByClassName("tabla");
+    let i=0;
+    for(i=0;i<5;i++)
+        {
+        elemento1[i].style.visibility="hidden";
+        elemento2[i].style.zIndex="-1";
+        }
+        //BOTON DE OPCIONES VISIBLE
+        elemento1[0].style.visibility="visible";
 }
 function tablaBusqueda()
 {
-    //DESAPARECE LA SEGUNDA TABLA DE INSERCCION //
-    var elemento0 = document.getElementById("tabla2");
-    elemento0.style.visibility="hidden";
+    //DESAPARECEN LAS TABLAS: INSERCCION-ACTUALIZACION-ELIMINACION //
+    var elemento1 = document.getElementsByClassName("tabla");
+    for(let i=0;i<elemento1.length;i++)
+        {
+        elemento1[i].style.visibility="hidden";
+        }
+    // Y APARECE LA TABLA DE INSERCCION //
+    elemento1[0].style.visibility="visible";
 
-    // Y APARECE LA PRIMERA TABLA DE INSERCCION //
-    var elemento1 = document.getElementById("tabla");
-    elemento1.style.visibility="visible";
 
     //PONER DE COLOR DORADO TODOS LOS BOTONES PRESENTES
-    //OPCIONES //
-    var elemento2 = document.getElementById("bloque_opciones");
-    elemento2.style.backgroundColor="rgb(206, 197, 70)";
-    //BUSQUEDA //
-    var elemento3 = document.getElementById("bloque_opciones_1");
-    elemento3.style.backgroundColor="rgb(206, 197, 70)";
-    //INSERCCION //
-    var elemento4 = document.getElementById("bloque_opciones_2");
-    elemento4.style.backgroundColor="rgb(206, 197, 70)";
-
+    //OPCIONES-BUSQUEDA-INSERCCION-ACTUALIZACION-ELIMINACION //
+    var elemento2 = document.getElementsByClassName("bloque_opciones");
+    for(let i=0;i<elemento2.length;i++)
+        {
+        elemento2[i].style.backgroundColor="rgb(206, 197, 70)";
+        }
     //TITULO PAGINA Y CABECERA
     var elemento5= document.getElementById("cabecera");
     elemento5.innerHTML="<h2><strong>Consulta de los Empleados en la Empresa</strong></h2>";
@@ -50,23 +55,21 @@ function tablaBusqueda()
 }
 function tablaInserccion()
 {   
-    //DESAPARECE LA PRIMERA TABLA DE BUSQUEDA //
-    var elemento0 = document.getElementById("tabla");
-    elemento0.style.visibility="hidden";
+    //DESAPARECEN LAS TABLAS: BUSQUEDA-ACTUALIZACION-ELIMINACION //
+    var elemento1 = document.getElementsByClassName("tabla");
+    for(let i=0;i<elemento1.length;i++)
+        {
+        elemento1[i].style.visibility="hidden";
+        }
+    // Y APARECE LA TABLA DE INSERCCION //
+    elemento1[1].style.visibility="visible";
 
-    // Y APARECE LA SEGUNDA TABLA DE INSERCCION //
-    var elemento1 = document.getElementById("tabla2");
-    elemento1.style.visibility="visible"; 
-    //OPCIONES //
-    var elemento2 = document.getElementById("bloque_opciones");
-    elemento2.style.backgroundColor=" rgb(93, 197, 93)";
-    //BUSQUEDA //
-    var elemento3 = document.getElementById("bloque_opciones_1");
-    elemento3.style.backgroundColor=" rgb(93, 197, 93)";
-    //INSERCCION //
-    var elemento4 = document.getElementById("bloque_opciones_2");
-    elemento4.style.backgroundColor=" rgb(93, 197, 93)";
-
+    //OPCIONES-BUSQUEDA-INSERCCION-ACTUALIZACION-ELIMINACION //
+    var elemento2 = document.getElementsByClassName("bloque_opciones");
+    for(let i=0;i<elemento2.length;i++)
+        {
+        elemento2[i].style.backgroundColor=" rgb(93, 197, 93)";
+        }
     //TITULO PAGINA Y CABECERA
     var elemento5= document.getElementById("cabecera");
     elemento5.innerHTML="<h2><strong>Registro de nuevos empleados en la Empresa</strong></h2>";
@@ -240,51 +243,34 @@ function opciones(){
                 }
             }
         }
-
-
-
-    //2 - Buscar por NOMBRE //
-    //3 - Buscar por APELLIDOS //
-    //4 - Buscar por POBLADO //
-    //5 - Buscar por PROFESIÓN //
-    //6 - Buscar por AHORROS //
-
-
-
-
 }
-
 var contador=1;
 function llamada()
 {
-    var elemento1 = document.getElementById("bloque_opciones_1");
-    var elemento2 = document.getElementById("bloque_opciones_2");
-    var elemento3 = document.getElementById("bloque_opciones");
+    var elemento= document.getElementsByClassName("bloque_opciones");
+    var elemento1= document.getElementsByClassName("tabla");
     var elemento4= document.getElementById("consulta");
     var elemento5= document.getElementById("cabecera");
-    var elemento6= document.getElementById("tabla");
-    var elemento7=document.getElementById("tabla2");
     if(contador%2!=0)
     {
-        elemento1.style.backgroundColor="rgb(233, 78, 78)"
-        elemento1.style.color="black"
-        elemento1.style.zIndex=0;
-
-        elemento2.style.backgroundColor="rgb(233, 78, 78)"
-        elemento2.style.color="black"
-        elemento2.style.zIndex=0;
-        elemento6.style.zIndex=0;
-        elemento7.style.zIndex=0;
+        for(let i=1;i<elemento.length;i++)
+            {
+            elemento[i].style.backgroundColor="rgb(233, 78, 78)";
+            elemento[i].style.color="black"
+            elemento[i].style.zIndex=0;
+            elemento1[i].style.zIndex=0;
+            }
         contador=contador+1;
     }
     else{
-        elemento1.style.zIndex=-1;
-        elemento2.style.zIndex=-1;
-        elemento3.style.backgroundColor="rgb(233, 78, 78)";
+        for(let i=1;i<elemento.length;i++)
+            {
+            elemento[i].style.zIndex=-1;
+            elemento1[i].style.visibility="hidden";
+            }
+        elemento[0].style.backgroundColor="rgb(233, 78, 78)";
         elemento4.style.backgroundColor="rgb(112, 30, 48)";
         elemento5.style.backgroundColor="rgb(243, 60, 173)";
-        elemento6.style.visibility="hidden";
-        elemento7.style.visibility="hidden";
         contador=contador+1;
     }
 }

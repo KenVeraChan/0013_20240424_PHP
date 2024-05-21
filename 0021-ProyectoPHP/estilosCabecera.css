@@ -16,8 +16,9 @@
     text-justify: kashida;
     padding-top: 20px;
 }
-#tabla{
+.tabla:nth-child(1){
     position: absolute;
+    margin-top: 50px;
     margin-left: 30%;
     padding-left: 30px;
     padding-right: 20px;
@@ -25,8 +26,9 @@
     height: 330px;
     background-color: rgb(206, 197, 70);
 }
-#tabla2{
+.tabla:nth-child(2){
     position: absolute;
+    margin-top: 50px;
     margin-left: 30%;
     padding-left: 30px;
     padding-right: 20px;
@@ -62,42 +64,32 @@
     height:18px;
     background-color: white;
 }
-#bloque_opciones{
+.bloque_opciones
+{
+    /*SE ELIGEN TODOS LOS HIJOS DE LA CLASE BLOQUE OPCIONES*/
     position: relative;
-    width: 100px;
+    width: 130px;
     height: 36px;
     float:right;
     margin-right: 10px;
     margin-top: 10px;
     text-align: center;
+    color: rgb(161, 80, 51);
+    padding-top: 7px;
+    background-color:rgb(161, 80, 51);
+    transition-property: background-color;
+}
+.bloque_opciones:nth-child(1)
+{
+    /*SE ELIGE EL PRIMER HIJO DE LA CLASE BLOQUE OPCIONES*/
+    position: relative;
+    width: 130px;
+    height: 36px;
+    float:right;
+    margin-right: 10px;
+    margin-top: 10px;
+    text-align: center;
+    color: black;
     padding-top: 7px;
     background-color: rgb(233, 78, 78);
-}
-#bloque_opciones_1{
-    position: relative;
-    width: 100px;
-    height: 36px;
-    float:right;
-    margin-right: 10px;
-    margin-top: 10px;
-    text-align: center;
-    color: rgb(161, 80, 51);
-    padding-top: 7px;
-    background-color:rgb(161, 80, 51);
-    transition-property: background-color;
-    z-index: -1;
-}
-#bloque_opciones_2{
-    position: relative;
-    width: 100px;
-    height: 36px;
-    float:right;
-    margin-right: 10px;
-    margin-top: 10px;
-    text-align: center;
-    color: rgb(161, 80, 51);
-    padding-top: 7px;
-    background-color:rgb(161, 80, 51);
-    transition-property: background-color;
-    z-index: -1;
 }

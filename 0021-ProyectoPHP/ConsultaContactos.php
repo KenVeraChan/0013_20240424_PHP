@@ -9,12 +9,14 @@
 </head>
 <body onload="cargarPagina()">
     <div id="cabecera"><h2><strong>Candidatos a la plantilla Sfer4D Corporation</strong></h2></div> 
-    <div><input type="submit" id="bloque_opciones" value="OPCIONES" onclick="llamada()"></div>
-    <div><input type="submit" id="bloque_opciones_1" value="BÚSQUEDA" onclick="tablaBusqueda()"></div>
-    <div><input type="submit" id="bloque_opciones_2" value="INSERCCIÓN" onclick="tablaInserccion()"></div>   
+    <div><input type="submit" class="bloque_opciones" value="OPCIONES" onclick="llamada()"></div>
+    <div><input type="submit" class="bloque_opciones" value="BÚSQUEDA" onclick="tablaBusqueda()"></div>
+    <div><input type="submit" class="bloque_opciones" value="INSERCCIÓN" onclick="tablaInserccion()"></div>
+    <div><input type="submit" class="bloque_opciones" value="ACTUALIZACIÓN" onclick="tablaActualizacion()"></div>  
+    <div><input type="submit" class="bloque_opciones" value="ELIMINACIÓN" onclick="tablaEliminacion()"></div>   
     <div id="consulta">
-    <!-- BUSQUEDAS -->
-        <form id="tabla" action="consultasPreparadas.php" method="get">
+    <!-- BUSQUEDAS TABLA 1 -->
+        <form class="tabla" action="consultasPreparadas.php" method="get">
            <p class="separacion"></p>
            <label class="celda">ID CONTACTO:<input type="text" class="celdas" name="id"></label> <!--ID-->
            <p class="separacion"></p>
@@ -92,8 +94,8 @@
            <input type="submit" value="BUSCAR" name="busqueda" class="boton"> <!--AHORROS-->
         </form>
 
-    <!-- INSERCCIONES -->
-        <form id="tabla2" action="consultasPreparadas.php" method="get">
+    <!-- INSERCCIONES TABLA 2 -->
+        <form class="tabla" action="consultasPreparadas.php" method="get">
            <p class="separacion"></p>
            <label class="celda">ID CONTACTO:<input type="text" class="celdas" name="id"></label> <!--ID-->
            <p class="separacion"></p>
