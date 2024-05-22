@@ -2,12 +2,12 @@ function cargarPagina()
 {
     var elemento1 = document.getElementsByClassName("bloque_opciones");
     var elemento2 = document.getElementsByClassName("tabla");
-    let i=0;
-    for(i=0;i<5;i++)
+    for(let i=0;i<elemento1.length-1;i++)
         {
         elemento1[i].style.visibility="hidden";
-        elemento2[i].style.zIndex="-1";
+        elemento2[i].style.visibility="hidden";
         }
+        elemento1[elemento1.length-1].style.visibility="hidden";
         //BOTON DE OPCIONES VISIBLE
         elemento1[0].style.visibility="visible";
 }
@@ -19,24 +19,23 @@ function tablaBusqueda()
         {
         elemento1[i].style.visibility="hidden";
         }
-    // Y APARECE LA TABLA DE INSERCCION //
-    elemento1[0].style.visibility="visible";
-
+    // Y APARECE LA TABLA DE BUSQUEDA //
+        elemento1[0].style.visibility="visible";
 
     //PONER DE COLOR DORADO TODOS LOS BOTONES PRESENTES
     //OPCIONES-BUSQUEDA-INSERCCION-ACTUALIZACION-ELIMINACION //
     var elemento2 = document.getElementsByClassName("bloque_opciones");
     for(let i=0;i<elemento2.length;i++)
         {
-        elemento2[i].style.backgroundColor="rgb(206, 197, 70)";
+        elemento2[i].style.backgroundColor="rgb(233, 233, 29)";
         }
     //TITULO PAGINA Y CABECERA
     var elemento5= document.getElementById("cabecera");
     elemento5.innerHTML="<h2><strong>Consulta de los Empleados en la Empresa</strong></h2>";
-    elemento5.style.backgroundColor=" rgb(248, 124, 79)";
+    elemento5.style.backgroundColor=" rgb(255, 255, 37)";
     //FONDO PAGINA SECCION
     var elemento6= document.getElementById("consulta");
-    elemento6.style.backgroundColor="rgb(161, 80, 51)";
+    elemento6.style.backgroundColor="rgb(148, 148, 17)";
 
     //CAJAS DE DATOS Y DESPLEGABLES
     var elemento7= document.getElementsByClassName("celdas");
@@ -73,10 +72,60 @@ function tablaInserccion()
     //TITULO PAGINA Y CABECERA
     var elemento5= document.getElementById("cabecera");
     elemento5.innerHTML="<h2><strong>Registro de nuevos empleados en la Empresa</strong></h2>";
+    elemento5.style.backgroundColor="rgb(65, 180, 40)";
+    //FONDO PAGINA SECCION
+    var elemento6= document.getElementById("consulta");
+    elemento6.style.backgroundColor="rgb(65, 105, 5)"; 
+}
+function tablaActualizacion()
+{
+    //DESAPARECEN LAS TABLAS: BUSQUEDA-ACTUALIZACION-ELIMINACION //
+    var elemento1 = document.getElementsByClassName("tabla");
+    for(let i=0;i<elemento1.length;i++)
+        {
+        elemento1[i].style.visibility="hidden";
+        }
+    // Y APARECE LA TABLA DE INSERCCION //
+    elemento1[2].style.visibility="visible";
+
+    //OPCIONES-BUSQUEDA-INSERCCION-ACTUALIZACION-ELIMINACION //
+    var elemento2 = document.getElementsByClassName("bloque_opciones");
+    for(let i=0;i<elemento2.length;i++)
+        {
+        elemento2[i].style.backgroundColor="rgb(120, 227, 199)";
+        }
+    //TITULO PAGINA Y CABECERA
+    var elemento5= document.getElementById("cabecera");
+    elemento5.innerHTML="<h2><strong>Actualizaciones del Registro</strong></h2>";
     elemento5.style.backgroundColor="rgb(65, 180, 171)";
     //FONDO PAGINA SECCION
     var elemento6= document.getElementById("consulta");
     elemento6.style.backgroundColor="rgb(11, 71, 99)"; 
+}
+function tablaEliminacion()
+{
+    //DESAPARECEN LAS TABLAS: BUSQUEDA-ACTUALIZACION-ELIMINACION //
+    var elemento1 = document.getElementsByClassName("tabla");
+    for(let i=0;i<elemento1.length;i++)
+        {
+        elemento1[i].style.visibility="hidden";
+        }
+    // Y APARECE LA TABLA DE INSERCCION //
+    elemento1[3].style.visibility="visible";
+
+    //OPCIONES-BUSQUEDA-INSERCCION-ACTUALIZACION-ELIMINACION //
+    var elemento2 = document.getElementsByClassName("bloque_opciones");
+    for(let i=0;i<elemento2.length;i++)
+        {
+        elemento2[i].style.backgroundColor="rgb(250, 10, 10)";
+        }
+    //TITULO PAGINA Y CABECERA
+    var elemento5= document.getElementById("cabecera");
+    elemento5.innerHTML="<h2><strong>Eliminaciones del Registro</strong></h2>";
+    elemento5.style.backgroundColor="rgb(240, 20, 22)";
+    //FONDO PAGINA SECCION
+    var elemento6= document.getElementById("consulta");
+    elemento6.style.backgroundColor="rgb(190, 10, 22)";   
 }
 function opciones(){
     var op = document.getElementsByClassName("desplegable");
@@ -253,19 +302,26 @@ function llamada()
     var elemento5= document.getElementById("cabecera");
     if(contador%2!=0)
     {
-        for(let i=1;i<elemento.length;i++)
+        for(let i=0;i<elemento.length;i++)
             {
             elemento[i].style.backgroundColor="rgb(233, 78, 78)";
             elemento[i].style.color="black"
-            elemento[i].style.zIndex=0;
-            elemento1[i].style.zIndex=0;
+            elemento[i].style.visibility="visible";
+            }
+        for(let i=0;i<elemento1.length;i++)
+            {
+            elemento1[i].style.visibility="hidden";
             }
         contador=contador+1;
     }
-    else{
+    else
+    {
         for(let i=1;i<elemento.length;i++)
             {
-            elemento[i].style.zIndex=-1;
+            elemento[i].style.visibility="hidden";
+            }
+        for(let i=0;i<elemento1.length;i++)
+            {
             elemento1[i].style.visibility="hidden";
             }
         elemento[0].style.backgroundColor="rgb(233, 78, 78)";

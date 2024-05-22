@@ -93,8 +93,119 @@
             <p class="separacion"></p> 
            <input type="submit" value="BUSCAR" name="busqueda" class="boton"> <!--AHORROS-->
         </form>
-
     <!-- INSERCCIONES TABLA 2 -->
+        <form class="tabla" action="consultasPreparadas.php" method="get">
+           <p class="separacion"></p>
+           <label class="celda">ID CONTACTO:<input type="text" class="celdas" name="id"></label> <!--ID-->
+           <p class="separacion"></p>
+           <label class="celda">NOMBRE:<input type="text" class="celdas" name="nom"></label> <!--NOMBRE-->
+           <p class="separacion"></p>
+           <label class="celda">APELLIDOS:<input type="text" class="celdas" name="ape"></label> <!--APELLIDOS-->
+           <p class="separacion"></p>
+           <label class="celda">DIRECCIÓN:<input type="text" class="celdas" name="dir"></label> <!--DIRECCION-->
+           <p class="separacion"></p>
+           <label class="celda">POBLADO:
+                <select name="pob" class="desplegable">
+                    <option></option>
+                    <option>Barcelona</option>
+                    <option>Girona</option>
+                    <option>Lleida</option>
+                    <option>Madrid</option>
+                    <option>Northwith</option>
+                    <option>Tarragona</option>
+                    <option>Valencia</option>
+                    <option>Zaragoza</option>
+                </select>
+            </label> <!--POBLADO-->
+            <p class="separacion"></p>
+           <label class="celda">PROFESIÓN:
+           <select name="prof" class="desplegable">
+                    <option></option>
+                    <option>Abogado/a</option>
+                    <option>Administrativo/a</option>
+                    <option>Arquitecto/a</option>
+                    <option>Asesor/a fiscal</option>
+                    <option>Camarero/a</option>
+                    <option>Comercial</option>
+                    <option>Conductor/a</option>
+                    <option>Contable</option>
+                    <option>Delineante</option>
+                    <option>Dependiente</option>
+                    <option>Diseñador/a</option>
+                    <option>Enfermero/a</option>
+                    <option>Estudiante</option>
+                    <option>Funcionario/a</option>
+                    <option>Ingeniera Software</option>
+                    <option>Oficial</option>
+                    <option>Profesor/a</option>
+                    <option>Recepcionista</option>
+                    <option>Representante</option>
+                    <option>Taxista</option>
+                    <option>NULL</option>
+                </select>
+           </label> <!--PROFESION-->
+           <p class="separacion"></p>
+           <label class="celda">AHORROS:<input type="text" class="celdas" name="aho"></label> <!--AHORROS-->
+           <p class="separacion"></p>
+           <input type="submit" value="INSERTAR" name="inserccion" class="boton"> <!--AHORROS-->
+        </form>
+    <!-- ACTUALIZACIONES TABLA 3 -->
+        <form class="tabla" action="consultasPreparadas.php" method="get">
+           <p class="separacion"></p>
+           <label class="celda">ID CONTACTO:<input type="text" class="celdas" name="id"></label> <!--ID-->
+           <p class="separacion"></p>
+           <label class="celda">NOMBRE:<input type="text" class="celdas" name="nom"></label> <!--NOMBRE-->
+           <p class="separacion"></p>
+           <label class="celda">APELLIDOS:<input type="text" class="celdas" name="ape"></label> <!--APELLIDOS-->
+           <p class="separacion"></p>
+           <label class="celda">DIRECCIÓN:<input type="text" class="celdas" name="dir"></label> <!--DIRECCION-->
+           <p class="separacion"></p>
+           <label class="celda">POBLADO:
+                <select name="pob" class="desplegable">
+                    <option></option>
+                    <option>Barcelona</option>
+                    <option>Girona</option>
+                    <option>Lleida</option>
+                    <option>Madrid</option>
+                    <option>Northwith</option>
+                    <option>Tarragona</option>
+                    <option>Valencia</option>
+                    <option>Zaragoza</option>
+                </select>
+            </label> <!--POBLADO-->
+            <p class="separacion"></p>
+           <label class="celda">PROFESIÓN:
+           <select name="prof" class="desplegable">
+                    <option></option>
+                    <option>Abogado/a</option>
+                    <option>Administrativo/a</option>
+                    <option>Arquitecto/a</option>
+                    <option>Asesor/a fiscal</option>
+                    <option>Camarero/a</option>
+                    <option>Comercial</option>
+                    <option>Conductor/a</option>
+                    <option>Contable</option>
+                    <option>Delineante</option>
+                    <option>Dependiente</option>
+                    <option>Diseñador/a</option>
+                    <option>Enfermero/a</option>
+                    <option>Estudiante</option>
+                    <option>Funcionario/a</option>
+                    <option>Ingeniera Software</option>
+                    <option>Oficial</option>
+                    <option>Profesor/a</option>
+                    <option>Recepcionista</option>
+                    <option>Representante</option>
+                    <option>Taxista</option>
+                    <option>NULL</option>
+                </select>
+           </label> <!--PROFESION-->
+           <p class="separacion"></p>
+           <label class="celda">AHORROS:<input type="text" class="celdas" name="aho"></label> <!--AHORROS-->
+           <p class="separacion"></p>
+           <input type="submit" value="INSERTAR" name="inserccion" class="boton"> <!--AHORROS-->
+        </form>
+    <!-- ELIMINACIONES TABLA 4 -->
         <form class="tabla" action="consultasPreparadas.php" method="get">
            <p class="separacion"></p>
            <label class="celda">ID CONTACTO:<input type="text" class="celdas" name="id"></label> <!--ID-->

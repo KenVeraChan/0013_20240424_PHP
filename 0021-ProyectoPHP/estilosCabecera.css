@@ -24,7 +24,7 @@
     padding-right: 20px;
     width: 500px;
     height: 330px;
-    background-color: rgb(206, 197, 70);
+    background-color: rgb(233, 233, 29);
 }
 .tabla:nth-child(2){
     position: absolute;
@@ -35,6 +35,26 @@
     width: 500px;
     height: 330px;
     background-color: rgb(93, 197, 93);
+}
+.tabla:nth-child(3){
+    position: absolute;
+    margin-top: 50px;
+    margin-left: 30%;
+    padding-left: 30px;
+    padding-right: 20px;
+    width: 500px;
+    height: 330px;
+    background-color: rgb(120, 227, 199);
+}
+.tabla:nth-child(4){
+    position: absolute;
+    margin-top: 50px;
+    margin-left: 30%;
+    padding-left: 30px;
+    padding-right: 20px;
+    width: 500px;
+    height: 330px;
+    background-color: rgb(250, 10, 10);
 }
 .celda{
     float: left;
