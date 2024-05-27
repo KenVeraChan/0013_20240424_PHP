@@ -9,7 +9,7 @@
 </head>
 <body onload="cargarPagina()">
     <div id="cabecera"><h2><strong>Candidatos a la plantilla Sfer4D Corporation</strong></h2></div> 
-    <div><input type="submit" class="bloque_opciones" value="OPCIONES" onclick="llamada()"></div>
+    <div><input type="submit" class="bloque_opciones" value="OPCIONES" onclick="llamada()""></div>
     <div><input type="submit" class="bloque_opciones" value="BÚSQUEDA" onclick="tablaBusqueda()"></div>
     <div><input type="submit" class="bloque_opciones" value="INSERCCIÓN" onclick="tablaInserccion()"></div>
     <div><input type="submit" class="bloque_opciones" value="ACTUALIZACIÓN" onclick="tablaActualizacion()"></div>  
@@ -203,7 +203,8 @@
            <p class="separacion"></p>
            <label class="celda">AHORROS:<input type="text" class="celdas" name="aho"></label> <!--AHORROS-->
            <p class="separacion"></p>
-           <input type="submit" value="INSERTAR" name="inserccion" class="boton"> <!--AHORROS-->
+           <input type="submit" value="ACTUALIZAR" name="actualizacion" class="boton"> <!--AHORROS-->
+           <input type="submit" value="CARGAR" name="carga" class="boton"> <!--AHORROS-->
         </form>
     <!-- ELIMINACIONES TABLA 4 -->
         <form class="tabla" action="consultasPreparadas.php" method="get">
@@ -259,7 +260,7 @@
            <p class="separacion"></p>
            <label class="celda">AHORROS:<input type="text" class="celdas" name="aho"></label> <!--AHORROS-->
            <p class="separacion"></p>
-           <input type="submit" value="INSERTAR" name="inserccion" class="boton"> <!--AHORROS-->
+           <input type="submit" value="ELIMINAR" name="eliminacion" class="boton"> <!--AHORROS-->
         </form>
     </div>
 </body>

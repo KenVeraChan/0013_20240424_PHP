@@ -10,9 +10,29 @@ function cargarPagina()
         elemento1[elemento1.length-1].style.visibility="hidden";
         //BOTON DE OPCIONES VISIBLE
         elemento1[0].style.visibility="visible";
-}
+        elemento1[0].style.borderRadius= "20px 10px 30px 50px";
+        elemento1[0].style.boxShadow= "rgb(255,255,255) 3px 3px 3px";
+        elemento1[0].style.background= "-webkit-linear-gradient(top, #FFFFFF, #8D003D)";
+        elemento1[0].addEventListener('mouseenter',function(){
+            elemento1[0].style.background= "-webkit-linear-gradient(top,#8D003D,#FFFFFF)";
+                })
+        elemento1[0].addEventListener('mouseleave',function(){
+            elemento1[0].style.background= "-webkit-linear-gradient(top,#FFFFFF, #8D003D)";
+                })
+} 
 function tablaBusqueda()
 {
+    //EFECTO COLOR DEL BOTON DEL CUADRO DEL FORMULARIO//
+    var botonForm=document.getElementsByClassName("boton");
+    botonForm[0].addEventListener("mouseenter",function(){
+        botonForm[0].style.transitionDuration = "0.5s";
+        botonForm[0].style.backgroundColor="yellow";
+    })
+    botonForm[0].addEventListener("mouseleave",function(){
+        botonForm[0].style.transitionDuration = "0.5s";
+        botonForm[0].style.backgroundColor="white";
+    })
+
     //DESAPARECEN LAS TABLAS: INSERCCION-ACTUALIZACION-ELIMINACION //
     var elemento1 = document.getElementsByClassName("tabla");
     for(let i=0;i<elemento1.length;i++)
@@ -27,11 +47,23 @@ function tablaBusqueda()
     var elemento2 = document.getElementsByClassName("bloque_opciones");
     for(let i=0;i<elemento2.length;i++)
         {
+        elemento2[i].style.visibility="visible";
         elemento2[i].style.backgroundColor="rgb(233, 233, 29)";
+        elemento2[i].style.color="black";
+        elemento2[i].style.borderRadius= "20px 10px 30px 50px";
+        elemento2[i].style.boxShadow= "rgb(255,255,255) 3px 3px 3px";
+        elemento2[i].style.background= "-webkit-linear-gradient(top,#FFFFFF,#B2C600)";
+        elemento2[i].addEventListener('mouseenter',function(){
+            elemento2[i].style.background= "-webkit-linear-gradient(top, #B2C600, #FFFFFF)";
+                })
+        elemento2[i].addEventListener('mouseleave',function(){
+            elemento2[i].style.background= "-webkit-linear-gradient(top,#FFFFFF,#B2C600)";
+                })
         }
     //TITULO PAGINA Y CABECERA
     var elemento5= document.getElementById("cabecera");
     elemento5.innerHTML="<h2><strong>Consulta de los Empleados en la Empresa</strong></h2>";
+    elemento5.style.color="black";
     elemento5.style.backgroundColor=" rgb(255, 255, 37)";
     //FONDO PAGINA SECCION
     var elemento6= document.getElementById("consulta");
@@ -54,6 +86,17 @@ function tablaBusqueda()
 }
 function tablaInserccion()
 {   
+    //EFECTO COLOR DEL BOTON DEL CUADRO DEL FORMULARIO//
+    var botonForm=document.getElementsByClassName("boton");
+    botonForm[1].addEventListener("mouseenter",function(){
+        botonForm[1].style.transitionDuration = "0.5s";
+        botonForm[1].style.backgroundColor="green";
+    })
+    botonForm[1].addEventListener("mouseleave",function(){
+        botonForm[1].style.transitionDuration = "0.5s";
+        botonForm[1].style.backgroundColor="white";
+    })
+
     //DESAPARECEN LAS TABLAS: BUSQUEDA-ACTUALIZACION-ELIMINACION //
     var elemento1 = document.getElementsByClassName("tabla");
     for(let i=0;i<elemento1.length;i++)
@@ -67,7 +110,18 @@ function tablaInserccion()
     var elemento2 = document.getElementsByClassName("bloque_opciones");
     for(let i=0;i<elemento2.length;i++)
         {
+        elemento2[i].style.visibility="visible";
         elemento2[i].style.backgroundColor=" rgb(93, 197, 93)";
+        elemento2[i].style.color="black";
+        elemento2[i].style.borderRadius= "20px 10px 30px 50px";
+        elemento2[i].style.boxShadow= "rgb(255,255,255) 3px 3px 3px";
+        elemento2[i].style.background= "-webkit-linear-gradient(top, #FFFFFF, #00C614)";
+        elemento2[i].addEventListener('mouseenter',function(){
+            elemento2[i].style.background= "-webkit-linear-gradient(top, #00C614, #FFFFFF)";
+                })
+        elemento2[i].addEventListener('mouseleave',function(){
+            elemento2[i].style.background= "-webkit-linear-gradient(top,#FFFFFF,#00C614)";
+                })
         }
     //TITULO PAGINA Y CABECERA
     var elemento5= document.getElementById("cabecera");
@@ -79,6 +133,25 @@ function tablaInserccion()
 }
 function tablaActualizacion()
 {
+    //EFECTO COLOR DEL BOTON DEL CUADRO DEL FORMULARIO//
+    var botonForm=document.getElementsByClassName("boton");
+    botonForm[2].addEventListener("mouseenter",function(){
+        botonForm[2].style.transitionDuration = "0.5s";
+        botonForm[2].style.backgroundColor="blue";
+    })
+    botonForm[2].addEventListener("mouseleave",function(){
+        botonForm[2].style.transitionDuration = "0.5s";
+        botonForm[2].style.backgroundColor="white";
+    })
+    botonForm[3].addEventListener("mouseenter",function(){
+        botonForm[3].style.transitionDuration = "0.5s";
+        botonForm[3].style.backgroundColor="blue";
+    })
+    botonForm[3].addEventListener("mouseleave",function(){
+        botonForm[3].style.transitionDuration = "0.5s";
+        botonForm[3].style.backgroundColor="white";
+    })
+
     //DESAPARECEN LAS TABLAS: BUSQUEDA-ACTUALIZACION-ELIMINACION //
     var elemento1 = document.getElementsByClassName("tabla");
     for(let i=0;i<elemento1.length;i++)
@@ -92,11 +165,23 @@ function tablaActualizacion()
     var elemento2 = document.getElementsByClassName("bloque_opciones");
     for(let i=0;i<elemento2.length;i++)
         {
+        elemento2[i].style.visibility="visible";
         elemento2[i].style.backgroundColor="rgb(120, 227, 199)";
+        elemento2[i].style.color="black";
+        elemento2[i].style.borderRadius= "20px 10px 30px 50px";
+        elemento2[i].style.boxShadow= "rgb(255,255,255) 3px 3px 3px";
+        elemento2[i].style.background= "-webkit-linear-gradient(top, #FFFFFF, #008084)";
+        elemento2[i].addEventListener('mouseenter',function(){
+            elemento2[i].style.background= "-webkit-linear-gradient(top,#008084,#FFFFFF)";
+                })
+        elemento2[i].addEventListener('mouseleave',function(){
+            elemento2[i].style.background= "-webkit-linear-gradient(top,#FFFFFF, #008084)";
+                })
         }
     //TITULO PAGINA Y CABECERA
     var elemento5= document.getElementById("cabecera");
     elemento5.innerHTML="<h2><strong>Actualizaciones del Registro</strong></h2>";
+    elemento5.style.color="black";
     elemento5.style.backgroundColor="rgb(65, 180, 171)";
     //FONDO PAGINA SECCION
     var elemento6= document.getElementById("consulta");
@@ -104,6 +189,16 @@ function tablaActualizacion()
 }
 function tablaEliminacion()
 {
+    //EFECTO COLOR DEL BOTON DEL CUADRO DEL FORMULARIO//
+    var botonForm=document.getElementsByClassName("boton");
+    botonForm[4].addEventListener("mouseenter",function(){
+        botonForm[4].style.transitionDuration = "0.5s";
+        botonForm[4].style.backgroundColor="red";
+    })
+    botonForm[4].addEventListener("mouseleave",function(){
+        botonForm[4].style.transitionDuration = "0.5s";
+        botonForm[4].style.backgroundColor="white";
+    })
     //DESAPARECEN LAS TABLAS: BUSQUEDA-ACTUALIZACION-ELIMINACION //
     var elemento1 = document.getElementsByClassName("tabla");
     for(let i=0;i<elemento1.length;i++)
@@ -112,20 +207,30 @@ function tablaEliminacion()
         }
     // Y APARECE LA TABLA DE INSERCCION //
     elemento1[3].style.visibility="visible";
-
     //OPCIONES-BUSQUEDA-INSERCCION-ACTUALIZACION-ELIMINACION //
     var elemento2 = document.getElementsByClassName("bloque_opciones");
     for(let i=0;i<elemento2.length;i++)
         {
-        elemento2[i].style.backgroundColor="rgb(250, 10, 10)";
+        elemento2[i].style.backgroundColor="rgb(100, 10, 10)";
+        elemento2[i].style.color="black";
+        elemento2[i].style.borderRadius= "20px 10px 30px 50px";
+        elemento2[i].style.boxShadow= "rgb(255,255,255) 3px 3px 3px";
+        elemento2[i].style.background= "-webkit-linear-gradient(top, #FFFFFF,  #8D0000)";
+        elemento2[i].addEventListener('mouseenter',function(){
+            elemento2[i].style.background= "-webkit-linear-gradient(top, #8D0000,#FFFFFF)";
+                })
+        elemento2[i].addEventListener('mouseleave',function(){
+            elemento2[i].style.background= "-webkit-linear-gradient(top,#FFFFFF, #8D0000)";
+                })
         }
     //TITULO PAGINA Y CABECERA
     var elemento5= document.getElementById("cabecera");
     elemento5.innerHTML="<h2><strong>Eliminaciones del Registro</strong></h2>";
-    elemento5.style.backgroundColor="rgb(240, 20, 22)";
+    elemento5.style.color="white";
+    elemento5.style.backgroundColor="rgb(120, 4, 21)";
     //FONDO PAGINA SECCION
     var elemento6= document.getElementById("consulta");
-    elemento6.style.backgroundColor="rgb(190, 10, 22)";   
+    elemento6.style.backgroundColor="rgb(85, 4, 21)";   
 }
 function opciones(){
     var op = document.getElementsByClassName("desplegable");
@@ -304,9 +409,18 @@ function llamada()
     {
         for(let i=0;i<elemento.length;i++)
             {
+            elemento[i].style.visibility="visible";     
             elemento[i].style.backgroundColor="rgb(233, 78, 78)";
-            elemento[i].style.color="black"
-            elemento[i].style.visibility="visible";
+            elemento[i].style.color="black";
+            elemento[i].style.borderRadius= "20px 10px 30px 50px";
+            elemento[i].style.boxShadow= "rgb(255,255,255) 3px 3px 3px";
+            elemento[i].style.background= "-webkit-linear-gradient(top, #FFFFFF, #8D003D)";
+            elemento[i].addEventListener('mouseenter',function(){
+                elemento[i].style.background= "-webkit-linear-gradient(top, #8D003D, #FFFFFF)";
+                    })
+            elemento[i].addEventListener('mouseleave',function(){
+                elemento[i].style.background= "-webkit-linear-gradient(top,#FFFFFF, #8D003D)";
+                    }) 
             }
         for(let i=0;i<elemento1.length;i++)
             {
@@ -324,9 +438,18 @@ function llamada()
             {
             elemento1[i].style.visibility="hidden";
             }
-        elemento[0].style.backgroundColor="rgb(233, 78, 78)";
+        elemento[0].style.borderRadius= "20px 10px 30px 50px";
+        elemento[0].style.boxShadow= "rgb(255,255,255) 3px 3px 3px";
+        elemento[0].style.background= "-webkit-linear-gradient(top, #FFFFFF, #8D003D)";
+        elemento[0].addEventListener('mouseenter',function(){
+            elemento[0].style.background= "-webkit-linear-gradient(top,#8D003D,#FFFFFF)";
+                })
+        elemento[0].addEventListener('mouseleave',function(){
+            elemento[0].style.background= "-webkit-linear-gradient(top,#FFFFFF, #8D003D)";
+                })
         elemento4.style.backgroundColor="rgb(112, 30, 48)";
-        elemento5.style.backgroundColor="rgb(243, 60, 173)";
+        elemento5.style.backgroundColor="rgb(141, 33, 80)";
+        elemento5.innerHTML="<h2><strong>Candidatos a la plantilla Sfer4D Corporation</strong></h2>";
         contador=contador+1;
     }
 }
