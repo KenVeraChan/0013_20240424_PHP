@@ -1,0 +1,5 @@
+PDO significa PHP Data Objects, Objetos de Datos de PHP, 
+una extensión para acceder a bases de datos. PDO permite 
+acceder a diferentes sistemas de bases de datos con un 
+controlador específico (MySQL, SQLite, Oracle...) 
+mediante el cual se conecta
