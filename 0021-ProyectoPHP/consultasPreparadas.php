@@ -14,6 +14,7 @@ try{
     $busqueda=$_GET["busqueda"];
     $inserccion=$_GET["inserccion"];
     $actualizacion=$_GET["actualizacion"];
+    $carga=$_GET["carga"];
     $eliminacion=$_GET["eliminacion"];
 
     //CREANDO VARIABLES RECIBIDAS DEL FORMULARIO
@@ -197,46 +198,53 @@ try{
                 }
             }
             ///COMPROBACIÓN DE ACTUALIZACION/// 
-            if(strcmp($busqueda,"BUSCAR") & strcmp($inserccion,"INSERTAR") & !strcmp($actualizacion,"ACTUALIZAR") & strcmp($eliminacion,"ELIMINAR"))
+            if(strcmp($busqueda,"BUSCAR") & strcmp($inserccion,"INSERTAR") & (!strcmp($actualizacion,"ACTUALIZAR") || !strcmp($carga,"CARGAR")) & strcmp($eliminacion,"ELIMINAR"))
             {
-                echo "<br><br>";
-                echo "HA ELEGIDO ACTUALIZAR EL REGISTRO";
-                echo "<br><br>";
-                /// INICIO DE CONSULTAS PREPARADAS ///
-                //----- PASO 1 -----//
-                //Creacion de la consulta //
-                $sql="INSERT INTO CONTACTOS_EMPRESA(ID,NOMBRE,APELLIDOS,DIRECCION,POBLACION,PROFESION,AHORROS) VALUES(?,?,?,?,?,?,?)";
-
-                //----- PASO 2 -----//
-                //Preparación de la consulta con la función mysqli_prepare(), //
-                //la cual requiere de dos argumentos: El objeto de conexión y la sentencia SQ //
-                $resultado=mysqli_prepare($conexion,$sql);
-
-                //----- PASO 3 -----//
-                //Unir los parámetros a la sentencia sql. La función mysqli_param() lo hace //
-                $okey=mysqli_stmt_bind_param($resultado,"isssssi",$id,$nom,$ape,$dir, $pob, $prof,$aho);
-
-                //----- PASO 4 -----//
-                //Ejecutar la consulta con la función mysqli_stmt_execute()//
-                $okey=mysqli_stmt_execute($resultado);
-                if($okey==false)
+                if(!strcmp($carga,"CARGAR"))
                 {
-                    echo "Error al ejecutar la consulta";
-                }else{
-
-                //----- PASO 5 -----//
-                // Asociar variables al resultado de la consulta. //
-                //Esto se consigue con la función mysqli_stmt_bind_result() //
-                //$okey=mysqli_stmt_bind_result($resultado,$conID,$conApellidos,$conNombre,$conPoblacion,$conEstCiv,$conProfesion);
-                
-                //----- PASO 6 -----//
-                //Leer los valores. Para ello se utilizará la función mysqli_stmt_fetch //
-                    echo "Articulos Agregados!!! <br><br>";
-                //    while(mysqli_stmt_fetch($resultado)){
-                //            echo $conID."  ".$conApellidos."  ".$conNombre."  ".$conPoblacion."  ".$conEstCiv."   ".$conProfesion."<br>";
-                //    }
-                mysqli_stmt_close($resultado); 
+                    //SI SE QUIEREN CARGAR LOS DATOS POR EL ID BUSCADO SE MOSTRARAN EN LA TABLA
+                    echo ("has elegido cargar datos");
                 }
+                if(!strcmp($actualizacion,"ACTUALIZAR"))
+                {
+                    //TRAS CARGAR LOS DATOS SE DESBLOQUEARAN TODAS LAS CASILLAS PARA CAMBIAR ALGO Y SE ACTUALIZARA
+                    echo("has elegido actualizar datos");
+                }
+                    echo "<br><br>";
+                    echo "HA ELEGIDO ACTUALIZAR EL REGISTRO";
+                    echo "<br><br>";
+                    /// INICIO DE CONSULTAS PREPARADAS ///
+                    //----- PASO 1 -----//
+                    //Creacion de la consulta //
+                    $sql="SELECT * FROM $BD_tabla WHERE $datos_CONSULTA[0]=?";
+                    //----- PASO 2 -----//
+                    //Preparación de la consulta con la función mysqli_prepare(), //
+                    //la cual requiere de dos argumentos: El objeto de conexión y la sentencia SQ //
+                    $resultado=mysqli_prepare($conexion,$sql);
+
+                    //----- PASO 3 -----//
+                    //Unir los parámetros a la sentencia sql. La función mysqli_param() lo hace //
+                    $okey=mysqli_stmt_bind_param($resultado,"i",$id);
+
+                    //----- PASO 4 -----//
+                    //Ejecutar la consulta con la función mysqli_stmt_execute()//
+                    $okey=mysqli_stmt_execute($resultado);
+                    if($okey==false)
+                    {
+                        echo "Error al ejecutar la consulta";
+                    }else{
+                    //----- PASO 5 -----//
+                    // Asociar variables al resultado de la consulta. //
+                    //Esto se consigue con la función mysqli_stmt_bind_result() //
+                    $okey=mysqli_stmt_bind_result($resultado,$conID,$conNombre,$conApellidos,$conDireccion,$conPoblacion,$conProfesion,$conAhorros);                    
+                    //----- PASO 6 -----//
+                    //Leer los valores. Para ello se utilizará la función mysqli_stmt_fetch //
+                        echo "Personal identificado: <br><br>";
+                        while(mysqli_stmt_fetch($resultado)){
+                                echo $conID."  ".$conNombre."  ".$conApellidos."  ".$conDireccion."  ".$conPoblacion."  ".$conProfesion."  ".$conAhorros."<br>";
+                        }
+                    mysqli_stmt_close($resultado); 
+                    }
             }
 
     }catch(mysqli_sql_exception $error1)

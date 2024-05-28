@@ -22,7 +22,7 @@ function cargarPagina()
 } 
 function tablaBusqueda()
 {
-    //EFECTO COLOR DEL BOTON DEL CUADRO DEL FORMULARIO//
+    //EFECTO COLOR DEL BOTON: BUSCAR, DEL CUADRO DEL FORMULARIO//
     var botonForm=document.getElementsByClassName("boton");
     botonForm[0].addEventListener("mouseenter",function(){
         botonForm[0].style.transitionDuration = "0.5s";
@@ -86,11 +86,11 @@ function tablaBusqueda()
 }
 function tablaInserccion()
 {   
-    //EFECTO COLOR DEL BOTON DEL CUADRO DEL FORMULARIO//
+    //EFECTO COLOR DEL BOTON: INSERTAR, DEL CUADRO DEL FORMULARIO//
     var botonForm=document.getElementsByClassName("boton");
     botonForm[1].addEventListener("mouseenter",function(){
         botonForm[1].style.transitionDuration = "0.5s";
-        botonForm[1].style.backgroundColor="green";
+        botonForm[1].style.backgroundColor="rgb(28,203,28)";
     })
     botonForm[1].addEventListener("mouseleave",function(){
         botonForm[1].style.transitionDuration = "0.5s";
@@ -133,19 +133,21 @@ function tablaInserccion()
 }
 function tablaActualizacion()
 {
-    //EFECTO COLOR DEL BOTON DEL CUADRO DEL FORMULARIO//
+    //EFECTO COLOR DEL BOTON: ACTUALIZAR, DEL CUADRO DEL FORMULARIO//
     var botonForm=document.getElementsByClassName("boton");
     botonForm[2].addEventListener("mouseenter",function(){
         botonForm[2].style.transitionDuration = "0.5s";
-        botonForm[2].style.backgroundColor="blue";
+        botonForm[2].style.backgroundColor="rgb(12,184,203)";
     })
     botonForm[2].addEventListener("mouseleave",function(){
         botonForm[2].style.transitionDuration = "0.5s";
         botonForm[2].style.backgroundColor="white";
     })
+
+    //EFECTO COLOR DEL BOTON: CARGAR, DEL CUADRO DEL FORMULARIO//
     botonForm[3].addEventListener("mouseenter",function(){
         botonForm[3].style.transitionDuration = "0.5s";
-        botonForm[3].style.backgroundColor="blue";
+        botonForm[3].style.backgroundColor="rgb(12,184,203)";
     })
     botonForm[3].addEventListener("mouseleave",function(){
         botonForm[3].style.transitionDuration = "0.5s";
@@ -158,6 +160,7 @@ function tablaActualizacion()
         {
         elemento1[i].style.visibility="hidden";
         }
+
     // Y APARECE LA TABLA DE INSERCCION //
     elemento1[2].style.visibility="visible";
 
@@ -178,22 +181,38 @@ function tablaActualizacion()
             elemento2[i].style.background= "-webkit-linear-gradient(top,#FFFFFF, #008084)";
                 })
         }
+
     //TITULO PAGINA Y CABECERA
     var elemento5= document.getElementById("cabecera");
     elemento5.innerHTML="<h2><strong>Actualizaciones del Registro</strong></h2>";
     elemento5.style.color="black";
     elemento5.style.backgroundColor="rgb(65, 180, 171)";
+
     //FONDO PAGINA SECCION
     var elemento6= document.getElementById("consulta");
-    elemento6.style.backgroundColor="rgb(11, 71, 99)"; 
+    elemento6.style.backgroundColor="rgb(11, 71, 99)";
+
+    //CAJAS DE DATOS Y DESPLEGABLES: COMIENZA CON EL INDICE 10 PORQUE HAY MAS TABLAS DETRAS
+    var elemento7= document.getElementsByClassName("celdas");
+    for(var i=10; i<14;i++)
+        {
+            elemento7[i].placeholder="Bloqueado";
+            elemento7[i].disabled=true;
+        }
+    var elemento8= document.getElementsByClassName("desplegable");
+    for(i=6; i<8;i++)
+        {
+            elemento8[i].placeholder="Bloqueado";
+            elemento8[i].disabled=true;
+        } 
 }
 function tablaEliminacion()
 {
-    //EFECTO COLOR DEL BOTON DEL CUADRO DEL FORMULARIO//
+    //EFECTO COLOR DEL BOTON: ELIMINAR, DEL CUADRO DEL FORMULARIO//
     var botonForm=document.getElementsByClassName("boton");
     botonForm[4].addEventListener("mouseenter",function(){
         botonForm[4].style.transitionDuration = "0.5s";
-        botonForm[4].style.backgroundColor="red";
+        botonForm[4].style.backgroundColor="rgb(155,22,13)";
     })
     botonForm[4].addEventListener("mouseleave",function(){
         botonForm[4].style.transitionDuration = "0.5s";
