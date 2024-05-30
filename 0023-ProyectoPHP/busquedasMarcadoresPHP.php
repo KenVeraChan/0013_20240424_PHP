@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Busquedas con PDO en PHP</title>
+    <title>Marcadores BUSQUEDAS con PDO en PHP</title>
 </head>
-<body> 
+<body>
     <?php
         //CONEXION CON LA BASE DE DATOS EN EL SERVIDOR: AHORA SE PONE AQUI
         include("conexionPHP.php");
-
+        $busquedaID=$_GET["id"];
+        $busquedaEDAD=$_GET["edad"];
         //INICIOS CON PDO:
         //CONFIGURACION:
         try
@@ -22,11 +23,11 @@
             //Adaptacion del lenguaje español del juego de caracteres
             $basePDO->exec("SET CHARACTER SET utf8");
             //Creación de una busqueda en SQL//
-                $sql="SELECT ID,NOMBRE,EDAD FROM $BD_tabla WHERE ID=?";
+                $sql="SELECT * FROM $BD_tabla WHERE ID=:P_ID AND EDAD=:P_EDAD";
             //Preparacion de la consulta
             $resultado=$basePDO->prepare($sql);
             //Pasando por parámetros el dato necesario para la búsqueda SQL
-            $resultado->execute(array(1));
+            $resultado->execute(array(":P_ID"=>$busquedaID,":P_EDAD"=>$busquedaEDAD));
             //Descarga de lo indicado en la instruccion con PDO a la base de datos SQL
                 while($registro=$resultado->fetch(PDO::FETCH_ASSOC))
                 {
@@ -36,7 +37,7 @@
         } 
         catch (PDOException $e) 
         {
-                echo ("Falló la conexión:". $e->getMessage());
+                echo ("Falló la conexión:". $e->getMessage()." en el código en la línea: ".$e->getLine());
         }
         finally
         {

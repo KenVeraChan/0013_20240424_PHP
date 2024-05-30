@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Busquedas con PDO en PHP</title>
+    <title>Marcadores Eliminaciones con PDO en PHP</title>
 </head>
-<body> 
+<body>
     <?php
         //CONEXION CON LA BASE DE DATOS EN EL SERVIDOR: AHORA SE PONE AQUI
         include("conexionPHP.php");
-
+        $inserccionID=$_POST["id"];
+        $inserccionNOMBRE=$_POST["nombre"];
+        $inserccionEDAD=$_POST["edad"];
         //INICIOS CON PDO:
         //CONFIGURACION:
         try
@@ -22,21 +24,22 @@
             //Adaptacion del lenguaje español del juego de caracteres
             $basePDO->exec("SET CHARACTER SET utf8");
             //Creación de una busqueda en SQL//
-                $sql="SELECT ID,NOMBRE,EDAD FROM $BD_tabla WHERE ID=?";
+                $sql="INSERT INTO $BD_tabla(ID,NOMBRE,EDAD)VALUES(:ID,:NOMBRE,:EDAD)";
             //Preparacion de la consulta
             $resultado=$basePDO->prepare($sql);
             //Pasando por parámetros el dato necesario para la búsqueda SQL
-            $resultado->execute(array(1));
+            $resultado->execute(array(":ID"=> $inserccionID,":NOMBRE"=>$inserccionNOMBRE,":EDAD"=>$inserccionEDAD));
             //Descarga de lo indicado en la instruccion con PDO a la base de datos SQL
                 while($registro=$resultado->fetch(PDO::FETCH_ASSOC))
                 {
-                    echo "<br>ID: ".$registro['ID']."<br>Nombre: ".$registro['NOMBRE']."<br>EDAD: ".$registro['EDAD']."<br><br>";
+                 echo "<br>ID: ".$registro['ID']."<br>Nombre: ".$registro['NOMBRE']."<br>EDAD: ".$registro['EDAD']."<br><br>";
                 }
+            echo("Registro insertado");
             $resultado->closeCursor();
         } 
         catch (PDOException $e) 
         {
-                echo ("Falló la conexión:". $e->getMessage());
+                echo ("Falló la conexión:". $e->getMessage()." en el código en la línea: ".$e->getLine());
         }
         finally
         {

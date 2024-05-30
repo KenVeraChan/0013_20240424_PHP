@@ -8,18 +8,12 @@
 <body>
     <?php
         //CONEXION CON LA BASE DE DATOS EN EL SERVIDOR: AHORA SE PONE AQUI
-        $BD_servidor="localhost";
-        $BD_usuario="root";
-        $BD_contrasenia="";
-        $BD_nombre="cursosql";
-        $BD_tabla="pdo_pruebas";
-        mysqli_report(MYSQLI_REPORT_ERROR|MYSQLI_REPORT_STRICT);
-        error_reporting(0);   //Para que no salgan los WARNINGS EN LA PAGINA WEB. QUITAR SI SE ESTA EDITANDO CODIGO
+        include("conexionPHP.php");
 
         //INICIOS CON PDO:
         try
         {
-            $base = 'mysql:'.$BD_nombre.';host='.$BD_servidor;
+            $base = 'mysql:host='.$BD_servidor.';dbname='.$BD_nombre;
             $gbd = new PDO($base, $BD_usuario, $BD_contrasenia);
             echo("Conexión Realizada!");
         } 
