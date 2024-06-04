@@ -22,9 +22,7 @@
     <form id="formulario" action="eliminacionesMarcadoresPHP.php" method="POST">
         <table>
             <tr><td>ID:</td><td><input type="number" name="id" style="width:80px; height:15px"></td></tr>
-            <tr><td>NOMBRE:</td><td><input type="text" name="nombre" style="width:80px; height:15px"></td></tr>
-            <tr><td>EDAD: </td><td><input type="number" name="edad" style="width:80px; height:15px"></td></tr>
-            <tr><td><input type="submit" value="INSERTAR" name="enviando"></td></tr>
+            <tr><td><input type="submit" value="ELIMINAR" name="enviando"></td></tr>
         </table>    
     </form>
     </body>
