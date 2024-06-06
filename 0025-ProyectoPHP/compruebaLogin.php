@@ -25,7 +25,11 @@
         $numeroRegistro=$resultado->rowCount();  //Si el usuario existe detectará una fila encontrada, sino dará cero filas
             if($numeroRegistro!=0)
             {
-                $usuarioLogin->setNombreUsuario($login); 
+                //Antes de redirigir al usuario se declarará la variable global session_start()
+                session_start();  //se inicia la sesion
+                //La variable SUPERGLOBAL $_SESSION["nombre_elegido"]
+                //permite usarse en cualquier parte del código de cualquier página creada PHP
+                $_SESSION["usuario"]=$_POST["login"];
                 header("location:entradaPagina.php");
             }else{
                 //Se le redirige a la misma pagina propia de LOGIN
