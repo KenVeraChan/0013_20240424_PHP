@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Entrada Pagina Web</title>
+    <title>Pagina de Visita</title>
 </head>
 <body>
     <?php
@@ -21,6 +21,5 @@
             echo("<br>Hola: ".$_SESSION["usuario"]."<br>");
         ?>
     <p>Esto es una información solo para <strong>Usuarios Registrados!</strong></p>
-    <p><a href="salidaPagina.php"><strong>CERRAR SESION</strong></a></p>
 </body>
 </html>
