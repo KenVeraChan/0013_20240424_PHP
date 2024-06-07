@@ -1,3 +1,25 @@
+<?php
+        //INICIA LA SESION DE ENTRADA
+        session_start();  //Para reanudar la sesion creada si se ha iniciado sino creará una nueva
+                          //También permite rescatar la información almancenada en la variable superglobal $_SESSION
+        if(!isset($_SESSION["usuario"]))
+        {
+            //Si es falso que no se ha registrado nada en la sesion
+            header("Location:login.php");
+        }
+         echo("<div style='
+                    position: absolute;
+                    margin-top: 0px;
+                    margin-right: 0px;
+                    float: right; 
+                    background-color: black; 
+                    text-align: center;
+                    color: white;
+                    width: auto;
+                    height: 5px
+                    '>Hola BIENVENIDO/A: ".$_SESSION["usuario"]."</div>");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

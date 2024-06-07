@@ -8,15 +8,14 @@
 <body>
 <?php
 include("conexionPHP.php");
-try{
-        
+try{   
+    //METODO 2: EMPLEANDO EN TODO ESTE FICHERO --> DE MYSQLI PARA LAS CONSULTAS PREPARADAS
     //CREANDO VARIABLES RECIBIDAS DE LOS BOTONES DE ACCION
     $busqueda=$_GET["busqueda"];
     $inserccion=$_GET["inserccion"];
     $actualizacion=$_GET["actualizacion"];
     $carga=$_GET["carga"];
     $eliminacion=$_GET["eliminacion"];
-
     //CREANDO VARIABLES RECIBIDAS DEL FORMULARIO
     $id=$_GET["id"];
     $nom=$_GET["nom"];
