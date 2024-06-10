@@ -202,17 +202,7 @@ try{
                 if(!strcmp($carga,"CARGAR"))
                 {
                     //SI SE QUIEREN CARGAR LOS DATOS POR EL ID BUSCADO SE MOSTRARAN EN LA TABLA
-                    echo ("has elegido cargar datos");
-                }
-                if(!strcmp($actualizacion,"ACTUALIZAR"))
-                {
-                    //TRAS CARGAR LOS DATOS SE DESBLOQUEARAN TODAS LAS CASILLAS PARA CAMBIAR ALGO Y SE ACTUALIZARA
-                    echo("has elegido actualizar datos");
-                }
-                    echo "<br><br>";
-                    echo "HA ELEGIDO ACTUALIZAR EL REGISTRO";
-                    echo "<br><br>";
-                    /// INICIO DE CONSULTAS PREPARADAS ///
+                    //SE INVOCA UNA VARIABLE DE TIPO GLOBAL PARA RECIBIR LO QUE SE QUIERE CARGAR CON EL ID
                     //----- PASO 1 -----//
                     //Creacion de la consulta //
                     $sql="SELECT * FROM $BD_tabla WHERE $datos_CONSULTA[0]=?";
@@ -238,12 +228,25 @@ try{
                     $okey=mysqli_stmt_bind_result($resultado,$conID,$conNombre,$conApellidos,$conDireccion,$conPoblacion,$conProfesion,$conAhorros);                    
                     //----- PASO 6 -----//
                     //Leer los valores. Para ello se utilizará la función mysqli_stmt_fetch //
-                        echo "Personal identificado: <br><br>";
-                        while(mysqli_stmt_fetch($resultado)){
-                                echo $conID."  ".$conNombre."  ".$conApellidos."  ".$conDireccion."  ".$conPoblacion."  ".$conProfesion."  ".$conAhorros."<br>";
-                        }
+                    session_start();  //INICIAR LA SESION SIEMPRE//
+                    while(mysqli_stmt_fetch($resultado))
+                    {
+                        $_SESSION["id"]=$conID;
+                        $_SESSION["nombre"]=$conNombre;
+                        $_SESSION["apellidos"]=$conApellidos;
+                        $_SESSION["direccion"]=$conDireccion;
+                        $_SESSION["poblacion"]=$conPoblacion;
+                        $_SESSION["profesion"]=$conProfesion;
+                        $_SESSION["ahorros"]=$conAhorros;
+                    }
+                    header("location:nuevos.php");
                     mysqli_stmt_close($resultado); 
                     }
+                }
+                if(!strcmp($actualizacion,"ACTUALIZAR"))
+                {
+                    //TRAS CARGAR LOS DATOS SE DESBLOQUEARAN TODAS LAS CASILLAS PARA CAMBIAR ALGO Y SE ACTUALIZARA
+                }
             }
 
     }catch(mysqli_sql_exception $error1)

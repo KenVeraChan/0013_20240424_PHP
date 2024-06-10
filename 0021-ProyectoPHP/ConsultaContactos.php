@@ -7,17 +7,6 @@
             //Si es falso que no se ha registrado nada en la sesion
             header("Location:login.php");
         }
-         echo("<div style='
-                    position: absolute;
-                    margin-top: 0px;
-                    margin-right: 0px;
-                    float: right; 
-                    background-color: black; 
-                    text-align: center;
-                    color: white;
-                    width: auto;
-                    height: 5px
-                    '>Hola BIENVENIDO/A: ".$_SESSION["usuario"]."</div>");
 ?>
 
 <!DOCTYPE html>
@@ -30,13 +19,39 @@
     <script src="cargaPaginas.js"></script>
 </head>
 <body onload="cargarPagina()">
-    <div id="cabecera"><h2><strong>Candidatos a la plantilla Sfer4D Corporation</strong></h2></div> 
+       <?php
+            echo("<div class='vitrea'
+                       style=' 
+                            float: right;
+                            position: relative;
+                            background-color: transparent;
+                            text-align: center;
+                            color: black;
+                            width: 300px;
+                            height: 25px;
+                            padding-top: 10px;
+                            '>Hola BIENVENIDO/A: ".$_SESSION["usuario"]."</div>
+                <a class='vitrea'
+                        style=' 
+                            float: right;
+                            background-color: transparent;
+                            text-align: center;
+                            font-size: 90%;
+                            color: black;
+                            width: 120px;
+                            height: 25px;
+                            text-decoration: none;
+                            padding-top: 12px;
+                            '
+                  href='salidaPagina.php'><strong>CERRAR SESION</strong></a> ");
+       ?>
+    <div class="cabecera"><h2><strong>Candidatos a la plantilla Sfer4D Corporation</strong></h2></div> 
     <div><input type="submit" class="bloque_opciones" value="OPCIONES" onclick="llamada()""></div>
     <div><input type="submit" class="bloque_opciones" value="BÚSQUEDA" onclick="tablaBusqueda()"></div>
     <div><input type="submit" class="bloque_opciones" value="INSERCCIÓN" onclick="tablaInserccion()"></div>
     <div><input type="submit" class="bloque_opciones" value="ACTUALIZACIÓN" onclick="tablaActualizacion()"></div>  
     <div><input type="submit" class="bloque_opciones" value="ELIMINACIÓN" onclick="tablaEliminacion()"></div>   
-    <div id="consulta">
+    <div class="consulta">
     <!-- BUSQUEDAS TABLA 1 -->
         <form class="tabla" action="consultasPreparadas.php" method="get">
            <p class="separacion"></p>
