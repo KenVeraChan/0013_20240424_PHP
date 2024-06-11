@@ -239,7 +239,7 @@ try{
                         $_SESSION["profesion"]=$conProfesion;
                         $_SESSION["ahorros"]=$conAhorros;
                     }
-                    header("location:nuevos.php");
+                    header("location:actualizacionPHP.php");
                     mysqli_stmt_close($resultado); 
                     }
                 }
