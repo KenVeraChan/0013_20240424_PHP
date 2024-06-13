@@ -9,13 +9,13 @@ var botonForm= document.getElementsByClassName("boton");
 function tablaEliminacion()
 {
     //EFECTO COLOR DEL BOTON: ELIMINAR, DEL CUADRO DEL FORMULARIO//
-    botonForm[4].addEventListener("mouseenter",function(){
-        botonForm[4].style.transitionDuration = "0.5s";
-        botonForm[4].style.backgroundColor="rgb(155,22,13)";
+    botonForm[0].addEventListener("mouseenter",function(){
+        botonForm[0].style.transitionDuration = "0.5s";
+        botonForm[0].style.backgroundColor="rgb(155,22,13)";
     })
-    botonForm[4].addEventListener("mouseleave",function(){
-        botonForm[4].style.transitionDuration = "0.5s";
-        botonForm[4].style.backgroundColor="white";
+    botonForm[0].addEventListener("mouseleave",function(){
+        botonForm[0].style.transitionDuration = "0.5s";
+        botonForm[0].style.backgroundColor="white";
     })
     //OPCIONES-BUSQUEDA-INSERCCION-ACTUALIZACION-ELIMINACION //
     for(let i=0;i<elemento1.length;i++)

@@ -9,13 +9,13 @@ var botonForm= document.getElementsByClassName("boton");
 function tablaInserccion()
 {   
     //EFECTO COLOR DEL BOTON: INSERTAR, DEL CUADRO DEL FORMULARIO//
-    botonForm[1].addEventListener("mouseenter",function(){
-        botonForm[1].style.transitionDuration = "0.5s";
-        botonForm[1].style.backgroundColor="rgb(28,203,28)";
+    botonForm[0].addEventListener("mouseenter",function(){
+        botonForm[0].style.transitionDuration = "0.5s";
+        botonForm[0].style.backgroundColor="rgb(28,203,28)";
     })
-    botonForm[1].addEventListener("mouseleave",function(){
-        botonForm[1].style.transitionDuration = "0.5s";
-        botonForm[1].style.backgroundColor="white";
+    botonForm[0].addEventListener("mouseleave",function(){
+        botonForm[0].style.transitionDuration = "0.5s";
+        botonForm[0].style.backgroundColor="white";
     })
     //OPCIONES-BUSQUEDA-INSERCCION-ACTUALIZACION-ELIMINACION //
     for(let i=0;i<elemento1.length;i++)

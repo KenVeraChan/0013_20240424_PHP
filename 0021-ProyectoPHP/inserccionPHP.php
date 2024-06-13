@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="inserccionCSS.css">
     <script src="inserccionJS.js"></script>
 </head>
-<body onload="cargarPagina()">
+<body onload="tablaInserccion()">
        <?php
             echo("<div style=' 
                             float: right;

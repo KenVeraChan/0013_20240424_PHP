@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="busquedaCSS.css">
     <script src="busquedaJS.js"></script>
 </head>
-<body onload="tablaActualizacion()">
+<body onload="tablaBusqueda()">
 <?php
     echo("<div style=' 
                     float: right;
@@ -128,14 +128,5 @@
            <input type="submit" value="BUSCAR" name="busqueda" class="boton"> <!--AHORROS-->
         </form>
     </div>
-    <script>
-    document.getElementsByClassName("celdas")[0].value = "<?php echo($_SESSION["id"]);?>";
-    document.getElementsByClassName("celdas")[1].value = "<?php echo($_SESSION["nombre"]);?>";
-    document.getElementsByClassName("celdas")[2].value = "<?php echo($_SESSION["apellidos"]);?>";
-    document.getElementsByClassName("celdas")[3].value = "<?php echo($_SESSION["direccion"]);?>";
-    document.getElementsByClassName("desplegable")[0].value = "<?php echo($_SESSION["poblacion"]);?>";
-    document.getElementsByClassName("desplegable")[1].value = "<?php echo($_SESSION["profesion"]);?>";
-    document.getElementsByClassName("celdas")[4].value = "<?php echo($_SESSION["ahorros"]);?>";
-</script>
 </body>
 </html>

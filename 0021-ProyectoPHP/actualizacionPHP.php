@@ -104,17 +104,40 @@
            <label class="celda">AHORROS:<input type="text" class="celdas" name="aho"></label> <!--AHORROS-->
            <p class="separacion"></p>
            <input type="submit" value="ACTUALIZAR" name="actualizacion" class="boton"> <!--AHORROS-->
-           <input type="submit" value="CARGAR" name="carga" class="boton"> <!--AHORROS-->
+           <input type="submit" value="CARGAR" name="carga" class="boton"><!--AHORROS-->
+           <input type="submit" value="BORRAR" name="borrado" class="boton"> <!--AHORROS-->
         </form>
     </div>
     <script>
-    document.getElementsByClassName("celdas")[0].value = "<?php echo($_SESSION["id"]);?>";
-    document.getElementsByClassName("celdas")[1].value = "<?php echo($_SESSION["nombre"]);?>";
-    document.getElementsByClassName("celdas")[2].value = "<?php echo($_SESSION["apellidos"]);?>";
-    document.getElementsByClassName("celdas")[3].value = "<?php echo($_SESSION["direccion"]);?>";
-    document.getElementsByClassName("desplegable")[0].value = "<?php echo($_SESSION["poblacion"]);?>";
-    document.getElementsByClassName("desplegable")[1].value = "<?php echo($_SESSION["profesion"]);?>";
-    document.getElementsByClassName("celdas")[4].value = "<?php echo($_SESSION["ahorros"]);?>";
-</script>
+        if(<?php echo($_SESSION["semaforo"])?>==1)
+        {
+            rellenar();
+        }
+        if(<?php echo($_SESSION["semaforo"])?>==2)
+        {
+            limpiar();
+        }
+        function rellenar()
+        {
+        document.getElementsByClassName("celdas")[0].value = "<?php echo($_SESSION["id"]);?>";
+        document.getElementsByClassName("celdas")[1].value = "<?php echo($_SESSION["nombre"]);?>";
+        document.getElementsByClassName("celdas")[2].value = "<?php echo($_SESSION["apellidos"]);?>";
+        document.getElementsByClassName("celdas")[3].value = "<?php echo($_SESSION["direccion"]);?>";
+        document.getElementsByClassName("desplegable")[0].value = "<?php echo($_SESSION["poblacion"]);?>";
+        document.getElementsByClassName("desplegable")[1].value = "<?php echo($_SESSION["profesion"]);?>";
+        document.getElementsByClassName("celdas")[4].value = "<?php echo($_SESSION["ahorros"]);?>";
+        }
+        function limpiar()
+        {
+            //CELDAS QUE SE COLOREAN PARA INDICAR QUE SON LAS MOSTRADAS
+        document.getElementsByClassName("celdas")[0].value = "";
+        document.getElementsByClassName("celdas")[1].value = "";
+        document.getElementsByClassName("celdas")[2].value = "";
+        document.getElementsByClassName("celdas")[3].value = "";
+        document.getElementsByClassName("desplegable")[0].value = "";
+        document.getElementsByClassName("desplegable")[1].value = "";
+        document.getElementsByClassName("celdas")[4].value = "";
+        }
+    </script>
 </body>
 </html>

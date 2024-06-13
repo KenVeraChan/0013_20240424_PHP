@@ -8,31 +8,22 @@ var botonForm= document.getElementsByClassName("boton");
 
 function tablaActualizacion()
 {
-   //EFECTO COLOR DEL BOTON: ACTUALIZAR, DEL CUADRO DEL FORMULARIO//
-    //BOTON DE ACTUALIZAR//
+   //EFECTO COLOR DEL BOTONES DEL FORMULARIO//
+    //BOTON DE ACTUALIZAR(0)--CARGAR(1)--LIMPIAR(2)//
+    for(let i=0;i<3;i++)
+    {
+        botonForm[i].addEventListener("mouseenter",function(){
+            botonForm[i].style.transitionDuration = "0.5s";
+            botonForm[i].style.backgroundColor="rgb(12,184,203)";
+        })
+        botonForm[i].addEventListener("mouseleave",function(){
+            botonForm[i].style.transitionDuration = "0.5s";
+            botonForm[i].style.backgroundColor="white";
+        })
+    }
     botonForm[0].disabled=true;  //DESACTIVADO PORQUE TODAVIA NO SE PUEDE EJECUTAR
-    botonForm[0].addEventListener("mouseenter",function(){
-        botonForm[0].style.transitionDuration = "0.5s";
-        botonForm[0].style.backgroundColor="rgb(12,184,203)";
-    })
-    botonForm[0].addEventListener("mouseleave",function(){
-        botonForm[0].style.transitionDuration = "0.5s";
-        botonForm[0].style.backgroundColor="white";
-    })
-
-    //EFECTO COLOR DEL BOTON: CARGAR, DEL CUADRO DEL FORMULARIO//
-    //BOTON DE CARGAR//
-    botonForm[1].addEventListener("mouseenter",function(){
-        botonForm[1].style.transitionDuration = "0.5s";
-        botonForm[1].style.backgroundColor="rgb(12,184,203)";
-    })
-    botonForm[1].addEventListener("mouseleave",function(){
-        botonForm[1].style.transitionDuration = "0.5s";
-        botonForm[1].style.backgroundColor="white";
-    })
     botonForm[1].addEventListener("onclick",function(){
         alert("hola");
-        //cargaDatosActualizacion();
     })
     //OPCIONES-BUSQUEDA-INSERCCION-ACTUALIZACION-ELIMINACION //
     for(let i=0;i<elemento1.length;i++)
@@ -46,4 +37,16 @@ function tablaActualizacion()
         }
     //TITULO PAGINA Y CABECERA
     elemento3[0].style.color="black";
+    //CELDAS QUE SE COLOREAN PARA INDICAR QUE SON LAS MOSTRADAS
+    for(i=0;i<5;i++)
+        {
+            elemento5[i].style.background= "rgb(165,187,230)";
+        if(i<2)
+            {
+                elemento6[i].style.background= "rgb(165,187,230)";
+            }
+        }
+        elemento5[0].style.background= "white";
+
 }
+

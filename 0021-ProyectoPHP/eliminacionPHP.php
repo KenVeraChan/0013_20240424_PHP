@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="eliminacionCSS.css">
     <script src="eliminacionJS.js"></script>
 </head>
-<body onload="cargarPagina()">
+<body onload="tablaEliminacion()">
        <?php
             echo("<div style=' 
                             float: right;

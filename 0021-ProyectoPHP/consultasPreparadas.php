@@ -15,6 +15,7 @@ try{
     $inserccion=$_GET["inserccion"];
     $actualizacion=$_GET["actualizacion"];
     $carga=$_GET["carga"];
+    $borrar=$_GET["borrado"];
     $eliminacion=$_GET["eliminacion"];
     //CREANDO VARIABLES RECIBIDAS DEL FORMULARIO
     $id=$_GET["id"];
@@ -197,7 +198,7 @@ try{
                 }
             }
             ///COMPROBACIÓN DE ACTUALIZACION/// 
-            if(strcmp($busqueda,"BUSCAR") & strcmp($inserccion,"INSERTAR") & (!strcmp($actualizacion,"ACTUALIZAR") || !strcmp($carga,"CARGAR")) & strcmp($eliminacion,"ELIMINAR"))
+            if(strcmp($busqueda,"BUSCAR") & strcmp($inserccion,"INSERTAR") & (!strcmp($actualizacion,"ACTUALIZAR") || !strcmp($carga,"CARGAR")|| !strcmp($borrar,"BORRAR")) & strcmp($eliminacion,"ELIMINAR"))
             {
                 if(!strcmp($carga,"CARGAR"))
                 {
@@ -239,9 +240,25 @@ try{
                         $_SESSION["profesion"]=$conProfesion;
                         $_SESSION["ahorros"]=$conAhorros;
                     }
+                    $_SESSION["semaforo"]=1;
                     header("location:actualizacionPHP.php");
                     mysqli_stmt_close($resultado); 
                     }
+                }
+                if(!strcmp($borrar,"BORRAR"))
+                {
+                    session_start();  //INICIAR LA SESION SIEMPRE//
+                    //TRAS BORRAR LOS DATOS SE BORRAN LAS CASILLAS
+                    $_SESSION["id"]="";
+                    $_SESSION["nombre"]="";
+                    $_SESSION["apellidos"]="";
+                    $_SESSION["direccion"]="";
+                    $_SESSION["poblacion"]="";
+                    $_SESSION["profesion"]="";
+                    $_SESSION["ahorros"]="";
+                    $_SESSION["semaforo"]=2;
+                    header("location:actualizacionPHP.php");
+                    mysqli_stmt_close($resultado); 
                 }
                 if(!strcmp($actualizacion,"ACTUALIZAR"))
                 {
