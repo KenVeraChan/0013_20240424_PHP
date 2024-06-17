@@ -17,6 +17,8 @@ try{
     $carga=$_GET["carga"];
     $borrar=$_GET["borrado"];
     $eliminacion=$_GET["eliminacion"];
+    $carga_elim=$_GET["carga_eliminacion"];
+    $borrar_elim=$_GET["borrado_eliminacion"];
     //CREANDO VARIABLES RECIBIDAS DEL FORMULARIO
     $id=$_GET["id"];
     $nom=$_GET["nom"];
@@ -263,6 +265,100 @@ try{
                 if(!strcmp($actualizacion,"ACTUALIZAR"))
                 {
                     //TRAS CARGAR LOS DATOS SE DESBLOQUEARAN TODAS LAS CASILLAS PARA CAMBIAR ALGO Y SE ACTUALIZARA
+                }
+            }
+            ///COMPROBACIÓN DE ELIMINACION/// 
+            if(strcmp($busqueda,"BUSCAR") & strcmp($inserccion,"INSERTAR") & strcmp($actualizacion,"ACTUALIZAR") & (!strcmp($eliminacion,"ELIMINAR") || !strcmp($carga_elim,"CARGA") || !strcmp($borrar_elim,"BORRA")))
+            {
+                if(!strcmp($carga_elim,"CARGA"))
+                {
+                    //SI SE QUIEREN CARGAR LOS DATOS POR EL ID BUSCADO SE MOSTRARAN EN LA TABLA
+                    //SE INVOCA UNA VARIABLE DE TIPO GLOBAL PARA RECIBIR LO QUE SE QUIERE CARGAR CON EL ID
+                    //----- PASO 1 -----//
+                    //Creacion de la consulta //
+                    $sql="SELECT * FROM $BD_tabla WHERE $datos_CONSULTA[0]=?";
+                    //----- PASO 2 -----//
+                    //Preparación de la consulta con la función mysqli_prepare(), //
+                    //la cual requiere de dos argumentos: El objeto de conexión y la sentencia SQ //
+                    $resultado=mysqli_prepare($conexion,$sql);
+
+                    //----- PASO 3 -----//
+                    //Unir los parámetros a la sentencia sql. La función mysqli_param() lo hace //
+                    $okey=mysqli_stmt_bind_param($resultado,"i",$id);
+
+                    //----- PASO 4 -----//
+                    //Ejecutar la consulta con la función mysqli_stmt_execute()//
+                    $okey=mysqli_stmt_execute($resultado);
+                    if($okey==false)
+                    {
+                        echo "Error al ejecutar la consulta";
+                    }else{
+                    //----- PASO 5 -----//
+                    // Asociar variables al resultado de la consulta. //
+                    //Esto se consigue con la función mysqli_stmt_bind_result() //
+                    $okey=mysqli_stmt_bind_result($resultado,$conID,$conNombre,$conApellidos,$conDireccion,$conPoblacion,$conProfesion,$conAhorros);                    
+                    //----- PASO 6 -----//
+                    //Leer los valores. Para ello se utilizará la función mysqli_stmt_fetch //
+                    session_start();  //INICIAR LA SESION SIEMPRE//
+                    while(mysqli_stmt_fetch($resultado))
+                    {
+                        $_SESSION["id"]=$conID;
+                        $_SESSION["nombre"]=$conNombre;
+                        $_SESSION["apellidos"]=$conApellidos;
+                        $_SESSION["direccion"]=$conDireccion;
+                        $_SESSION["poblacion"]=$conPoblacion;
+                        $_SESSION["profesion"]=$conProfesion;
+                        $_SESSION["ahorros"]=$conAhorros;
+                    }
+                    $_SESSION["semaforo"]=1;
+                    header("location:eliminacionPHP.php");
+                    mysqli_stmt_close($resultado); 
+                    }
+                }
+                if(!strcmp($borrar_elim,"BORRA"))
+                {
+                    session_start();  //INICIAR LA SESION SIEMPRE//
+                    //TRAS BORRAR LOS DATOS SE BORRAN LAS CASILLAS
+                    $_SESSION["id"]="";
+                    $_SESSION["nombre"]="";
+                    $_SESSION["apellidos"]="";
+                    $_SESSION["direccion"]="";
+                    $_SESSION["poblacion"]="";
+                    $_SESSION["profesion"]="";
+                    $_SESSION["ahorros"]="";
+                    $_SESSION["semaforo"]=2;
+                    header("location:eliminacionPHP.php");
+                    mysqli_stmt_close($resultado); 
+                }
+                if(!strcmp($eliminacion,"ELIMINAR"))
+                {
+                    //TRAS CARGAR LOS DATOS SE DESBLOQUEARAN TODAS LAS CASILLAS PARA CAMBIAR ALGO Y SE ACTUALIZARA
+                    //SI SE QUIEREN CARGAR LOS DATOS POR EL ID BUSCADO SE MOSTRARAN EN LA TABLA
+                    //SE INVOCA UNA VARIABLE DE TIPO GLOBAL PARA RECIBIR LO QUE SE QUIERE CARGAR CON EL ID
+                    //----- PASO 1 -----//
+                    //Creacion de la consulta //
+                    $sql="DELETE FROM $BD_tabla WHERE $datos_CONSULTA[0]=?";
+                    //----- PASO 2 -----//
+                    //Preparación de la consulta con la función mysqli_prepare(), //
+                    //la cual requiere de dos argumentos: El objeto de conexión y la sentencia SQ //
+                    $resultado=mysqli_prepare($conexion,$sql);
+
+                    //----- PASO 3 -----//
+                    //Unir los parámetros a la sentencia sql. La función mysqli_param() lo hace //
+                    $okey=mysqli_stmt_bind_param($resultado,"i",$id);
+
+                    //----- PASO 4 -----//
+                    //Ejecutar la consulta con la función mysqli_stmt_execute()//
+                    $okey=mysqli_stmt_execute($resultado);
+                    if($okey==false)
+                    {
+                        echo "Error al ejecutar la consulta";
+                    }else
+                    {
+                        $_SESSION["semaforo"]=3;
+                        header("location:eliminacionPHP.php");
+                        mysqli_stmt_close($resultado); 
+                    }                
                 }
             }
 

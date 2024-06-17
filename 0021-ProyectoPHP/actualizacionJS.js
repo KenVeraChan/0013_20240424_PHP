@@ -47,6 +47,5 @@ function tablaActualizacion()
             }
         }
         elemento5[0].style.background= "white";
-
 }
 
