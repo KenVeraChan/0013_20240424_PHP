@@ -41,17 +41,15 @@ try{
             {
                 $semaforo=0;   //señal de qué selector esta implicado tras los CONDICIONALES
                 $puntero=0;    //señal para la seleccion del tipo de AHORRO en el desplegable
+                $contador=0;
+                $matrizEmpleados[100][100];
                 ///FASE DE COMPROBACION///
                 for($semaforo=0;$semaforo<count($datos_FORM);$semaforo++)
                 {
                     if(!is_null($datos_FORM[$semaforo]) && $semaforo!=10)
                     {
-                        /// INICIO DE CONSULTAS PREPARADAS ///
-                        //----- PASO 1 -----//
-                        //Creacion de la consulta //
                         if($semaforo==6)
                         {
-                          //CON EL DESPLEGABLE DE COMPARACIÓN
                             if(!strcmp($datos_FORM[$semaforo],"Menos de 1.000"))
                             {
                                 $puntero=0;
@@ -98,9 +96,16 @@ try{
                                     echo "Error al ejecutar la consulta";
                                 }else{
                                 $okey=mysqli_stmt_bind_result($resultado,$conID,$conNombre,$conApellidos,$conDireccion,$conPoblacion,$conProfesion,$conAhorros);
-                                    echo "Personal encontrado: <br><br>";
-                                    while(mysqli_stmt_fetch($resultado)){
-                                            echo $conID."  ".$conNombre."  ".$conApellidos."  ".$conDireccion."  ".$conPoblacion."  ".$conProfesion."  ".$conAhorros."<br>";
+                                    while(mysqli_stmt_fetch($resultado))
+                                    {
+                                        $matrizEmpleados[$contador][0]=$conID;
+                                        $matrizEmpleados[$contador][1]=$conNombre;
+                                        $matrizEmpleados[$contador][2]=$conApellidos;
+                                        $matrizEmpleados[$contador][3]=$conDireccion;
+                                        $matrizEmpleados[$contador][4]=$conPoblacion;
+                                        $matrizEmpleados[$contador][5]=$conProfesion;
+                                        $matrizEmpleados[$contador][6]=$conAhorros;
+                                        $contador=$contador+1;
                                     }
                                 mysqli_stmt_close($resultado); 
                                 }
@@ -125,32 +130,36 @@ try{
                             $resultado=mysqli_prepare($conexion,$sql);
                             //----- PASO 3 -----//
                             //Unir los parámetros a la sentencia sql. La función mysqli_param() lo hace //
-                            
                             $okey=mysqli_stmt_bind_param($resultado,"s",$datos_FORM[$semaforo]);
-
                             //----- PASO 4 -----//
                             //Ejecutar la consulta con la función mysqli_stmt_execute()//
                             $okey=mysqli_stmt_execute($resultado);
                             if($okey==false)
                             {
                                 echo "Error al ejecutar la consulta";
-                            }else{
-
-                            //----- PASO 5 -----//
-                            //Crear y Asociar variables al resultado de la consulta. //
-                            //Esto se consigue con la función mysqli_stmt_bind_result() //
-                            $okey=mysqli_stmt_bind_result($resultado,$conID,$conNombre,$conApellidos,$conDireccion,$conPoblacion,$conProfesion,$conAhorros);
-                            
-                            //----- PASO 6 -----//
-                            //Leer los valores. Para ello se utilizará la función mysqli_stmt_fetch //
-                                echo "Personal encontrado: <br><br>";
-                                while(mysqli_stmt_fetch($resultado)){
-                                        echo $conID."  ".$conNombre."  ".$conApellidos."  ".$conDireccion."  ".$conPoblacion."  ".$conProfesion."  ".$conAhorros."<br>";
-                                }
-                            mysqli_stmt_close($resultado); 
+                            }
+                            else
+                            {
+                                $okey=mysqli_stmt_bind_result($resultado,$conID,$conNombre,$conApellidos,$conDireccion,$conPoblacion,$conProfesion,$conAhorros);
+                                    while(mysqli_stmt_fetch($resultado))
+                                    {
+                                        $matrizEmpleados[$contador][0]=$conID;
+                                        $matrizEmpleados[$contador][1]=$conNombre;
+                                        $matrizEmpleados[$contador][2]=$conApellidos;
+                                        $matrizEmpleados[$contador][3]=$conDireccion;
+                                        $matrizEmpleados[$contador][4]=$conPoblacion;
+                                        $matrizEmpleados[$contador][5]=$conProfesion;
+                                        $matrizEmpleados[$contador][6]=$conAhorros;
+                                        $contador=$contador+1;
+                                    }
+                                mysqli_stmt_close($resultado); 
                             }
                             $semaforo=10;  //SE CIERRA EL PASO PARA QUE ENTRE AQUI DE NUEVO
                         }
+                        session_start();  //INICIAR LA SESION SIEMPRE//
+                        $_SESSION["semaforo"]=1;
+                        $_SESSION["matrizEmpleados"]=$matrizEmpleados[100][100];
+                        header("location:busquedaPHP-TABLAFIND.php");
                     }
                 }
             }
@@ -168,7 +177,7 @@ try{
                 else
                 {
                 session_start();  //INICIAR LA SESION SIEMPRE//
-                $_SESSION["semaforo"]=1;
+                $_SESSION["semaforo"]=2;
                 header("location:inserccionPHP.php");
                 mysqli_stmt_close($resultado); 
                 }

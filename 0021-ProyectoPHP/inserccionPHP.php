@@ -108,11 +108,11 @@
         </form>
     </div>
     <script>
-        if(<?php echo($_SESSION["semaforo"])?>==1)
+        if(<?php echo($_SESSION["semaforo"])?>==2)
         {
-            rellenar();
+            limpiar();
         }
-        function rellenar()
+        function limpiar()
         {
         document.getElementsByClassName("celdas")[0].value = "";
         document.getElementsByClassName("celdas")[1].value = "";

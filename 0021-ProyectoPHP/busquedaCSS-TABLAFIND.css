@@ -1,0 +1,80 @@
+*{
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+.cabecera{
+    /*TITULO PAGINA Y CABECERA*/
+    width: 100%;
+    height: 60px;
+    background-color: rgb(255, 255, 37);
+    text-align:center;
+    text-shadow: 5px;
+    text-justify: kashida;
+    padding-top: 5px;
+}
+.consulta{
+    /*FONDO PAGINA SECCION*/ 
+    width: 100%;
+    height: 720px;
+    background-color: rgb(148, 148, 17); 
+    text-align: center;
+    text-shadow: 5px;
+    text-justify: kashida;
+    padding-top: 20px;
+}
+.tabla{
+    margin-top: 50px;
+    margin-left: 30%;
+    padding-left: 30px;
+    padding-right: 20px;
+    width: 500px;
+    height: 330px;
+    background-color: rgb(189, 189, 9);
+}
+.bloque_opciones{
+    /*SE ELIGEN TODOS LOS HIJOS DE LA CLASE BLOQUE OPCIONES*/
+    width: 130px;
+    height: 36px;
+    float:right;
+    margin-right: 10px;
+    margin-top: 10px;
+    text-align: center;
+    padding-top: 7px;
+    background-color:rgb(233, 233, 29);
+    color:black;
+    border-radius: 30px 30px 30px 30px;
+    box-shadow: rgb(255,255,255) 3px 3px 3px;
+    background: -webkit-linear-gradient(top,#FFFFFF,#B2C600);
+    transition-property: background-color;
+}
+.celda{
+    float: left;
+    width: 480px;
+    height:10px;
+    text-align:left;
+    margin-top: 12px;
+}
+.celdas{
+    float:right;
+    width: 350px;
+    height:12px;
+    background-color: white;
+}
+.boton{
+    float: left;
+    margin-top: 25px;
+    margin-left: 20px;
+    width: 100px;
+    height: 25px;
+    background-color: rgb(255, 255, 255);
+}
+.separacion{
+    height: 12px;
+}
+.desplegable{
+    float:right;
+    width: 358px;
+    height:18px;
+    background-color: white;
+}

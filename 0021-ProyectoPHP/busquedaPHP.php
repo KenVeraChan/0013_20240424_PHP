@@ -13,7 +13,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Actualización de Empleados</title>
+    <title>Búsqueda de Empleados</title>
     <link rel="stylesheet" href="busquedaCSS.css">
     <script src="busquedaJS.js"></script>
 </head>
