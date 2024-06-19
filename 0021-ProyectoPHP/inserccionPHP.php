@@ -107,5 +107,21 @@
            <input type="submit" value="INSERTAR" name="inserccion" class="boton"> <!--AHORROS-->
         </form>
     </div>
+    <script>
+        if(<?php echo($_SESSION["semaforo"])?>==1)
+        {
+            rellenar();
+        }
+        function rellenar()
+        {
+        document.getElementsByClassName("celdas")[0].value = "";
+        document.getElementsByClassName("celdas")[1].value = "";
+        document.getElementsByClassName("celdas")[2].value = "";
+        document.getElementsByClassName("celdas")[3].value = "";
+        document.getElementsByClassName("desplegable")[0].value = "";
+        document.getElementsByClassName("desplegable")[1].value = "";
+        document.getElementsByClassName("celdas")[4].value = "";
+        }
+    </script>
 </body>
 </html>

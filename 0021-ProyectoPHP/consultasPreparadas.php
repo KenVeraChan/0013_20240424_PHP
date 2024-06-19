@@ -39,9 +39,6 @@ try{
             ///COMPROBACION DE BUSQUEDA///
             if(!strcmp($busqueda,"BUSCAR") & strcmp($inserccion,"INSERTAR") & strcmp($actualizacion,"ACTUALIZAR") & strcmp($eliminacion,"ELIMINAR"))
             {
-                echo "<br><br>";
-                echo "HA ELEGIDO BUSCAR UN ACTUAL EMPLEADO";
-                echo "<br><br>";
                 $semaforo=0;   //señal de qué selector esta implicado tras los CONDICIONALES
                 $puntero=0;    //señal para la seleccion del tipo de AHORRO en el desplegable
                 ///FASE DE COMPROBACION///
@@ -160,42 +157,19 @@ try{
             ///COMPROBACIÓN DE INSERCCION/// 
             if(strcmp($busqueda,"BUSCAR") & !strcmp($inserccion,"INSERTAR") & strcmp($actualizacion,"ACTUALIZAR") & strcmp($eliminacion,"ELIMINAR"))
             {
-                echo "<br><br>";
-                echo "HA ELEGIDO REGISTRAR UN NUEVO EMPLEADO";
-                echo "<br><br>";
-                /// INICIO DE CONSULTAS PREPARADAS ///
-                //----- PASO 1 -----//
-                //Creacion de la consulta //
                 $sql="INSERT INTO CONTACTOS_EMPRESA(ID,NOMBRE,APELLIDOS,DIRECCION,POBLACION,PROFESION,AHORROS) VALUES(?,?,?,?,?,?,?)";
-
-                //----- PASO 2 -----//
-                //Preparación de la consulta con la función mysqli_prepare(), //
-                //la cual requiere de dos argumentos: El objeto de conexión y la sentencia SQ //
                 $resultado=mysqli_prepare($conexion,$sql);
-
-                //----- PASO 3 -----//
-                //Unir los parámetros a la sentencia sql. La función mysqli_param() lo hace //
                 $okey=mysqli_stmt_bind_param($resultado,"isssssi",$id,$nom,$ape,$dir, $pob, $prof,$aho);
-
-                //----- PASO 4 -----//
-                //Ejecutar la consulta con la función mysqli_stmt_execute()//
                 $okey=mysqli_stmt_execute($resultado);
                 if($okey==false)
                 {
                     echo "Error al ejecutar la consulta";
-                }else{
-
-                //----- PASO 5 -----//
-                // Asociar variables al resultado de la consulta. //
-                //Esto se consigue con la función mysqli_stmt_bind_result() //
-                //$okey=mysqli_stmt_bind_result($resultado,$conID,$conApellidos,$conNombre,$conPoblacion,$conEstCiv,$conProfesion);
-                
-                //----- PASO 6 -----//
-                //Leer los valores. Para ello se utilizará la función mysqli_stmt_fetch //
-                    echo "Articulos Agregados!!! <br><br>";
-                //    while(mysqli_stmt_fetch($resultado)){
-                //            echo $conID."  ".$conApellidos."  ".$conNombre."  ".$conPoblacion."  ".$conEstCiv."   ".$conProfesion."<br>";
-                //    }
+                }
+                else
+                {
+                session_start();  //INICIAR LA SESION SIEMPRE//
+                $_SESSION["semaforo"]=1;
+                header("location:inserccionPHP.php");
                 mysqli_stmt_close($resultado); 
                 }
             }
