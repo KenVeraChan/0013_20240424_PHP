@@ -42,7 +42,19 @@ try{
                 $semaforo=0;   //señal de qué selector esta implicado tras los CONDICIONALES
                 $puntero=0;    //señal para la seleccion del tipo de AHORRO en el desplegable
                 $contador=0;
-                $matrizEmpleados[100][100];
+                session_start();  //INICIAR LA SESION SIEMPRE//
+                //INICIALIZACION DE VARIABLE ARRAY
+                    for ($i=0;$i<100;$i++)
+                    {
+                    for($j=0;$j<100;$j++)
+                        {
+                            if(isset($_SESSION["matrizEmpleados"][$i][$j]))
+                            {
+                                $_SESSION["matrizEmpleados"][$i][$j]="";
+                            }
+                        }
+                    $j=0; //Reinicio de la variable siguiente fila
+                    }
                 ///FASE DE COMPROBACION///
                 for($semaforo=0;$semaforo<count($datos_FORM);$semaforo++)
                 {
@@ -98,13 +110,13 @@ try{
                                 $okey=mysqli_stmt_bind_result($resultado,$conID,$conNombre,$conApellidos,$conDireccion,$conPoblacion,$conProfesion,$conAhorros);
                                     while(mysqli_stmt_fetch($resultado))
                                     {
-                                        $matrizEmpleados[$contador][0]=$conID;
-                                        $matrizEmpleados[$contador][1]=$conNombre;
-                                        $matrizEmpleados[$contador][2]=$conApellidos;
-                                        $matrizEmpleados[$contador][3]=$conDireccion;
-                                        $matrizEmpleados[$contador][4]=$conPoblacion;
-                                        $matrizEmpleados[$contador][5]=$conProfesion;
-                                        $matrizEmpleados[$contador][6]=$conAhorros;
+                                        $_SESSION["matrizEmpleados"][$contador][0]=$conID;
+                                        $_SESSION["matrizEmpleados"][$contador][1]=$conNombre;
+                                        $_SESSION["matrizEmpleados"][$contador][2]=$conApellidos;
+                                        $_SESSION["matrizEmpleados"][$contador][3]=$conDireccion;
+                                        $_SESSION["matrizEmpleados"][$contador][4]=$conPoblacion;
+                                        $_SESSION["matrizEmpleados"][$contador][5]=$conProfesion;
+                                        $_SESSION["matrizEmpleados"][$contador][6]=$conAhorros;
                                         $contador=$contador+1;
                                     }
                                 mysqli_stmt_close($resultado); 
@@ -143,22 +155,20 @@ try{
                                 $okey=mysqli_stmt_bind_result($resultado,$conID,$conNombre,$conApellidos,$conDireccion,$conPoblacion,$conProfesion,$conAhorros);
                                     while(mysqli_stmt_fetch($resultado))
                                     {
-                                        $matrizEmpleados[$contador][0]=$conID;
-                                        $matrizEmpleados[$contador][1]=$conNombre;
-                                        $matrizEmpleados[$contador][2]=$conApellidos;
-                                        $matrizEmpleados[$contador][3]=$conDireccion;
-                                        $matrizEmpleados[$contador][4]=$conPoblacion;
-                                        $matrizEmpleados[$contador][5]=$conProfesion;
-                                        $matrizEmpleados[$contador][6]=$conAhorros;
+                                        $_SESSION["matrizEmpleados"][$contador][0]=$conID;
+                                        $_SESSION["matrizEmpleados"][$contador][1]=$conNombre;
+                                        $_SESSION["matrizEmpleados"][$contador][2]=$conApellidos;
+                                        $_SESSION["matrizEmpleados"][$contador][3]=$conDireccion;
+                                        $_SESSION["matrizEmpleados"][$contador][4]=$conPoblacion;
+                                        $_SESSION["matrizEmpleados"][$contador][5]=$conProfesion;
+                                        $_SESSION["matrizEmpleados"][$contador][6]=$conAhorros;
                                         $contador=$contador+1;
                                     }
                                 mysqli_stmt_close($resultado); 
                             }
                             $semaforo=10;  //SE CIERRA EL PASO PARA QUE ENTRE AQUI DE NUEVO
                         }
-                        session_start();  //INICIAR LA SESION SIEMPRE//
                         $_SESSION["semaforo"]=1;
-                        $_SESSION["matrizEmpleados"]=$matrizEmpleados[100][100];
                         header("location:busquedaPHP-TABLAFIND.php");
                     }
                 }

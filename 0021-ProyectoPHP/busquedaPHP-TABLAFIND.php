@@ -50,24 +50,31 @@
     <div><input type="submit" class="bloque_opciones" value="ELIMINACIÓN" onclick="location.href='eliminacionPHP.php'"></div>   
     <div class="consulta">
         <?php
-                $empleadosRegistro[100][100] = $_SESSION["matrizEmpleados"];
-                echo "<br>";
-                for ($i=0;$i<100;$i++)
-                 {
-                    for($j=0;$j<100;$j++)
-                        {
-                            if(!empty($empleadosRegistro[$i][$j]))
-                            {
-                                echo $empleadosRegistro[$i][$j]."<br>";
-                            }
-                            else
-                            {
-                                $i=99; //Pone fin al bucle
-                                $j=99;
-                            }
-                        }
-                    $j=0; //Reinicio de la variable siguiente fila
-                }    
+            echo "<br>";
+            echo "<table style='margin-top: 60px; width:80%; margin-left: 10%'>";
+            echo "<tr>
+                    <td><strong>ID</strong></td>
+                    <td><strong>NOMBRE</strong></td>
+                    <td><strong>APELLIDOS</strong></td>
+                    <td><strong>DIRECCIÓN</strong></td>
+                    <td><strong>POBLACIÓN</strong></td>
+                    <td><strong>PROFESIÓN</strong></td>
+                    <td><strong>AHORROS</strong></td>
+                  </tr>";
+            for ($i=0;$i<100;$i++)
+            {
+                echo "<tr>";
+                for($j=0;$j<7;$j++)
+                {
+                    if(isset($_SESSION["matrizEmpleados"][$i][$j]))
+                    {
+                        echo "<td>".$_SESSION["matrizEmpleados"][$i][$j]."</td>";
+                    }
+                }
+                echo "</tr>";
+                $j=0; //Reinicio de la variable siguiente fila
+            }
+        echo "</table>" 
         ?>
     </div>
 </body>
