@@ -52,7 +52,7 @@
         <?php
             echo "<br>";
             echo "<table style='margin-top: 60px; width:80%; margin-left: 10%'>";
-            echo "<tr>
+            echo "<tr style='background-color:rgb(239,255,90)'>
                     <td><strong>ID</strong></td>
                     <td><strong>NOMBRE</strong></td>
                     <td><strong>APELLIDOS</strong></td>
@@ -68,7 +68,7 @@
                 {
                     if(isset($_SESSION["matrizEmpleados"][$i][$j]))
                     {
-                        echo "<td>".$_SESSION["matrizEmpleados"][$i][$j]."</td>";
+                        echo "<td class='uno' style='background-color:rgb(235,245,148)'>".$_SESSION["matrizEmpleados"][$i][$j]."</td>";
                     }
                 }
                 echo "</tr>";
@@ -77,5 +77,19 @@
         echo "</table>" 
         ?>
     </div>
+    <script>
+        function tablaColor()
+        {
+            var cambia=document.getElementsByClassName("consulta")
+            cambia[0].addEventListener("mouseenter",function(){
+                cambia[0].style.transitionDuration = "0.5s";
+                cambia[0].style.backgroundColor="yellow";
+            })
+            cambia[0].addEventListener("mouseleave",function(){
+                cambia[0].style.transitionDuration = "0.5s";
+                cambia[0].style.backgroundColor="white";
+            })        
+        }
+    </script>
 </body>
 </html>

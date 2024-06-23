@@ -46,11 +46,12 @@ try{
                 //INICIALIZACION DE VARIABLE ARRAY
                     for ($i=0;$i<100;$i++)
                     {
-                    for($j=0;$j<100;$j++)
+                    for($j=0;$j<7;$j++)
                         {
                             if(isset($_SESSION["matrizEmpleados"][$i][$j]))
                             {
-                                $_SESSION["matrizEmpleados"][$i][$j]="";
+                                //Se igualan a NULL porque si fuera un espacio en blanco crearía fila vacía
+                                $_SESSION["matrizEmpleados"][$i][$j]=null;
                             }
                         }
                     $j=0; //Reinicio de la variable siguiente fila
