@@ -1,0 +1,2 @@
+Si antes se hizo todo con programación procedimental, 
+ahora se procederá a hacer lo mismo pero con programación orientada a objetos (POO)
