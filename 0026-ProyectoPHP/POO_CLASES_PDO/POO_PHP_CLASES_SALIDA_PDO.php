@@ -1,7 +1,7 @@
 <?php
-    require("POO_PHP_CLASES_EXTENDS.php");
+    require("POO_PHP_CLASES_EXTENDS_PDO.php");
     $personas=new personas();
-    $array_personas=$personas->get_Personas();
+    $array_personas=$personas->get_Personas(3);
 ?>
 
 <!DOCTYPE html>
@@ -9,7 +9,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Salida por pantalla POO CLASES</title>
+    <title>Salida por pantalla PDO CLASES</title>
 </head>
 <body>
     <?php
@@ -19,9 +19,8 @@
             echo $elemento['ID']."</td><td>";
             echo $elemento['Nombre']."</td><td>";
             echo $elemento['Apellidos']."</td><td>";
-            echo $elemento['Dirección']."</td><td>";
-            echo $elemento['Población']."</td><td>";
-            echo $elemento['Teléfono']."</td><td></tr></table>";
+            echo $elemento['Teléfono']."</td><td>";
+            echo $elemento['Email']."</td><td></tr></table>";
         }
     ?>
 </body>

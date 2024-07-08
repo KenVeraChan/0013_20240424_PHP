@@ -7,7 +7,7 @@
 </head>
 <body>
    <?php
-   require ("POO_ConexionPHP.php");
+   require ("POO_ConexionPHP_MYSQLI.php");
    $conexion= new mysqli($DB_servidor,$DB_usuario,$DB_contrasenia,$DB_nombre);
    if($conexion->connect_errno)
    {

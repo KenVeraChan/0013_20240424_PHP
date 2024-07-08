@@ -1,5 +1,5 @@
 <?php
-    require("POO_ConexionPHP_CLASES.php");
+    require("POO_ConexionPHP_CLASES_MYSQLI.php");
     class Conexion
     {
         protected $conexion_db;

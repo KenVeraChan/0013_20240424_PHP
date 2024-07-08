@@ -1,5 +1,5 @@
 <?php
-require("POO_PHP_CLASES.php");
+require("POO_PHP_CLASES_MYSQLI.php");
     class personas extends Conexion
     {
         public function personas()
