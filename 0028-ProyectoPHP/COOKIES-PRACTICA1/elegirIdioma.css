@@ -1,0 +1,14 @@
+#titulo{
+    text-align: center;
+}
+.idioma{
+    height: 140px;
+    width: 140px;
+}
+.idiomas{
+    height: 150px;
+    width: 150px;
+}
+#opciones{
+    margin-left: 25%;
+}
