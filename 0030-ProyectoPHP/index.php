@@ -29,19 +29,25 @@
             <td class="caja">         
                 <a href="borrarCRUD.php?id=<?php echo($persona->id);?>">
                         <input class="botonera" type="submit" value="Borrar"></a>
-                <input class="botonera" type="submit" value="Actualizar">
+                <a href="actualizarCRUD.php?id=<?php echo($persona->id);?>">
+                        <input class="botonera" type="submit" value="Actualizar">
             </td>
         </tr>
         <?php
             endforeach;
         ?>
-        <tr class="cabecera">
-            <td class="cajaID"></td>
-            <td class="caja"><input type="text" class="rellenar" placeholder="Nombre"></td>
-            <td class="caja"><input type="text" class="rellenar" placeholder="Apellido"></td>
-            <td class="caja"><input type="text" class="rellenar" placeholder="Direccion"></td>
-            <td class="caja"><input class="botonera" type="submit" value="Insertar"></td>
-        </tr>
     </table>
+        <form class="cabecera" action="insertarCRUD.php" method="GET">
+            <table id="tabla">
+                <tr class="cajaReg">
+                    <td class="cajaID"><input style="width:20px" type="text" class="rellenar" name="id" placeholder="Id"></td>
+                    <td class="caja"><input type="text" class="rellenar" name="nombre" placeholder="Nombre"></td>
+                    <td class="caja"><input type="text" class="rellenar" name="apellido" placeholder="Apellido"></td>
+                    <td class="caja"><input type="text" class="rellenar" name="direccion" placeholder="Direccion"></td>
+                    <td class="cajaB"><input type="submit" class="botonera" value="Insertar"></td>
+                </tr>
+            </table>
+        </form>
+
 </body>
 </html>
