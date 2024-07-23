@@ -1,0 +1,95 @@
+*{
+    background-color: rgb(245, 191, 90);
+    margin: 0px;
+    padding: 0px;
+}
+#titulo{
+    text-align: center;
+    margin-top: 20px;
+}
+#tabla{
+    margin-top: 25px;
+    margin-left: 10%;
+    width: 1200px;
+    height: 100px;
+}
+#subtitulo{
+    text-align: center;
+}
+
+.cajaT{
+    background-color: rgb(189, 186, 47);
+    text-align: center;
+    float: left;
+    border-color: black;
+    width: 150px;
+    height: 20px;
+    margin-left: 1px;
+    margin-right: 1px;
+}
+.cajaE{
+    background-color: rgb(189, 186, 47);
+    text-align: center;
+    font-size: medium;
+    float: left;
+    border-color: black;
+    width: 150px;
+    height: 20px;
+    margin-left: 1px;
+    margin-right: 1px;
+}
+.cajaB{
+    background-color: rgb(189, 186, 47);
+    text-align: center;
+    font-size: medium;
+    float: left;
+    border-color: black;
+    width: 75px;
+    height: 20px;
+    margin-left: 1px;
+    margin-right: 1px;
+}
+.cajaT:nth-child(1){
+    width: 30px;
+}
+.caja{
+    float: left;
+    border-color: black;
+    background-color:white;
+    text-align: center;
+    width: 150px;
+    height: 20px;
+    margin-left: 1px;
+    margin-right: 1px;
+}
+.cajaID{
+    float: left;
+    border-color: black;
+    background-color:white;
+    text-align: center;
+    width: 30px;
+    height: 20px;
+    margin-left: 1px;
+    margin-right: 1px;
+}
+.cajaReg
+{
+    float: left;
+    border-color: transparent;
+    background-color:transparent;
+    width: 1150px;
+    height: 20px;
+    margin-left: 1px;
+    margin-right: 1px;   
+}
+.botonera{
+    float: left;
+    width: 75px;
+    background-color: darkgrey;
+}
+.rellenar{
+    width: 120px;
+    height: 16px;
+    background-color:rgb(241, 229, 48);
+    margin-left: 10%;
+}
