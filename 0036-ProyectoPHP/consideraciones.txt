@@ -1,0 +1,1 @@
+El código que se tiene en este directorio permite la subida libre de cualquier fichero, no sólo imágenes. Además de ello, permite la libertad de subir archivos con el tamaño ilimitado que se pretenda alcanzar (pendiente de modificar para evitar fallos)
