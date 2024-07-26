@@ -2,6 +2,7 @@
     //Declaracion constantes estáticas:
     $BD_tabla=configModelo::getTabla();  //Se hace llamada a constantes estáticas
     $db_elegido=$_GET["poblacion"]??null;
+    //Se le ha añadido 
     $tamPagina=3;
     if(isset($_GET["cargaPagina"]))
         {
