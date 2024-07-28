@@ -18,10 +18,13 @@
             </tr>
             <tr>
                 <td colspan="2" style="text-align: center">
-                    <input type="submit" value="Enviar Imagen">
+                    <input type="submit" name="envia" value="Enviar Imagen">
+                </td>
+                <td colspan="2" style="text-align: center">
+                    <input type="submit" name="carga" value="Cargar Imagen">
                 </td>
             </tr>
         </table>
     </form>
 </body>
-</html>l
+</html>
