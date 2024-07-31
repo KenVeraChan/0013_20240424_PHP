@@ -6,7 +6,7 @@
     <title>SUBIDA DE IMÁGENES AL SERVIDOR</title>
 </head>
 <body>
-    <form action="../MODELO/datosArchivos.php" method="POST" enctype="multipart/form-data">
+    <form action="../MODELO/eleccion.php" method="POST" enctype="multipart/form-data">
         <table style="margin: auto; width:450px; border:2px dotted #FF0000;">
             <tr>
                 <td>
