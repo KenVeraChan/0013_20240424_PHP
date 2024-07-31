@@ -11,7 +11,7 @@
 
     $sql="SELECT * FROM $BD_tabla WHERE id=?";
     $consulta=$conexion->prepare($sql);
-    $consulta->execute(array("23"));
+    $consulta->execute(array("46"));
     while($fila=$consulta->fetch(PDO::FETCH_ASSOC)):
     {
         $idFich=$fila["id"];
@@ -23,7 +23,7 @@
         <div>Nombre: <?php echo $nombreFich;?></div><br>
         <div>Tipo: <?php echo $tipoFich;?></div><br>
         <div style="border: solid; color: green">
-            <img src="data:image/jpeg;base64,<?php echo base64_encode($contenidoFich);?>" 
+            <img src="data:image/jpeg;base64,<?php echo base64_encode(stripslashes($contenidoFich));?>" 
                 alt="Esta es la primera imagen" 
                 style="width: 70%">
         </div>
