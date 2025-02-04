@@ -1,0 +1,8 @@
+Almacenaje de Imágenes en la BBDD MySQL empleando campos BLOB
+BLOB: Binary Large OBjects
+Conversor en BITS los ficheros que se suben al servidor
+
+TinyBlob: 254 BYTES
+MediumBlob: 64KB
+Blob: 16MB
+LongBlob: 4GB

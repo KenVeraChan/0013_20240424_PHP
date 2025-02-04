@@ -1,3 +1,14 @@
+<?php
+include "incrementaCookie.php";
+if(isset($_COOKIE["idiomaSeleccionado"]))
+{
+    //no hace nada porque la COOKIE sigue existiendo
+}
+else
+{
+    header("Location: elegirIdioma.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +18,7 @@
 </head>
 <body>
     <h1 style="text-align: center"><strong>The Earth</strong></h1>
-    <h4 style="text-align: center">
+    <h4 style="text-align: center" onclick="<?php incrementaCookie($_SESSION["idiomaElegido"]);?>";>
         The Earth (from the Latin Terra, Roman deity equivalent 
         to Gaia, Greek goddess of femininity and fertility) is a 
         planet in the solar system that revolves around its 
@@ -25,5 +36,6 @@
         radiation, thus allowing life on the planet
     </h4>
     <img style="margin-left: 30%; width:600px; height:600px" src="./imagenes/elMundo.jpg">
+    <?php echo "La COOKIE vale: ".$_COOKIE["idiomaSeleccionado"]; ?>
 </body>
 </html>

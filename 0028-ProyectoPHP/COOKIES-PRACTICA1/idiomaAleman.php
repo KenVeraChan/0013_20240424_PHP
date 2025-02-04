@@ -1,3 +1,14 @@
+<?php
+include "incrementaCookie.php";
+if(isset($_COOKIE["idiomaSeleccionado"]))
+{
+    //no hace nada porque la COOKIE sigue existiendo
+}
+else
+{
+    header("Location: elegirIdioma.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +16,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dokument auf Deutsch</title>
 </head>
-<body>
+<body onclick="<?php incrementaCookie($_SESSION["idiomaElegido"]);?>">
     <h1 style="text-align: center"><strong>Die Erde</strong></h1>
     <h4 style="text-align: center">
     La Tierra (del latín Terra, deidad romana equivalente a Gea, 
