@@ -18,7 +18,7 @@ else
     <script src="inactividadSesion.js"></script>
     <title>Documento en ESPAÑOL</title>
 </head>
-<body onload="AddAlert()">
+<body onload="AddAlert(1,3)">
     <h1 style="text-align: center"><strong>La Tierra</strong></h1>
     <h4 style="text-align: center">
     Die Erde (von lateinisch Terra, römische Gottheit, gleichbedeutend mit Gaia, 

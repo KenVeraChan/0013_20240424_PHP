@@ -18,7 +18,7 @@ else
     <script src="inactividadSesion.js"></script>
     <title>Document in INGLES</title>
 </head>
-<body onload="AddAlert()">
+<body onload="AddAlert(1,3)">
     <h1 style="text-align: center"><strong>The Earth</strong></h1>
     <h4 style="text-align: center" onclick="<?php incrementaCookie($_SESSION["idiomaElegido"]);?>";>
         The Earth (from the Latin Terra, Roman deity equivalent 

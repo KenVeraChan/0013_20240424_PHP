@@ -18,7 +18,7 @@ else
     <script src="inactividadSesion.js"></script>
     <title>Dokument auf Deutsch</title>
 </head>
-<body onload="AddAlert()">
+<body onload="AddAlert(1,3)">
     <h1 style="text-align: center"><strong>Die Erde</strong></h1>
     <h4 style="text-align: center">
     La Tierra (del latín Terra, deidad romana equivalente a Gea, 
